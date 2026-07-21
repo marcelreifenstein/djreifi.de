@@ -1,0 +1,186 @@
+import { auth, db, isFirebaseConfigured, normalizeCode, normalizeText } from './firebase-common.js';
+import { signInAnonymously } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js';
+import {
+  collection, doc, getDoc, getDocs, query, where, orderBy, limit, serverTimestamp,
+  writeBatch, onSnapshot, runTransaction, Timestamp
+} from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js';
+
+const warning = document.querySelector('#firebase-warning');
+const eventLogin = document.querySelector('#event-login');
+const eventCodeInput = document.querySelector('#event-code');
+const openEventButton = document.querySelector('#open-event');
+const eventStatus = document.querySelector('#event-status');
+const appShell = document.querySelector('#wish-app');
+const eventBanner = document.querySelector('#event-banner');
+const wishForm = document.querySelector('#wish-form');
+const wishStatus = document.querySelector('#wish-status');
+const wishList = document.querySelector('#wish-list');
+const emptyWishes = document.querySelector('#empty-wishes');
+const priority = document.querySelector('#priority');
+const priorityValue = document.querySelector('#priority-value');
+
+let currentEventId = null;
+let currentEvent = null;
+let unsubscribeWishes = null;
+
+priority?.addEventListener('input', () => { priorityValue.textContent = priority.value; });
+
+if (!isFirebaseConfigured) {
+  warning?.classList.remove('hidden');
+  openEventButton.disabled = true;
+} else {
+  signInAnonymously(auth).catch(() => {
+    eventStatus.textContent = 'Die anonyme Anmeldung ist nicht aktiviert.';
+    eventStatus.className = 'form-status error';
+  });
+}
+
+const setStatus = (element, message, type = '') => {
+  element.textContent = message;
+  element.className = `form-status ${type}`.trim();
+};
+
+const renderWish = (wish) => {
+  const item = document.createElement('article');
+  item.className = 'wish-item';
+  const status = wish.status === 'played' ? ' · gespielt' : '';
+  item.innerHTML = `
+    <div>
+      <h3>${escapeHtml(wish.artist)} – ${escapeHtml(wish.title)}</h3>
+      <div class="wish-meta"><span class="priority-badge">${wish.priority}/10</span>${status}</div>
+    </div>
+    <button class="like-btn" type="button" aria-label="Titel liken">♥ ${Number(wish.likesCount || 0)}</button>`;
+  item.querySelector('button').addEventListener('click', (event) => likeWish(wish.id, event.currentTarget));
+  return item;
+};
+
+const escapeHtml = (value) => String(value || '').replace(/[&<>'"]/g, (character) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[character]));
+
+const watchWishes = () => {
+  unsubscribeWishes?.();
+  const wishesQuery = query(
+    collection(db, 'events', currentEventId, 'wishes'),
+    where('hidden', '==', false),
+    orderBy('createdAt', 'desc'),
+    limit(100)
+  );
+  unsubscribeWishes = onSnapshot(wishesQuery, (snapshot) => {
+    wishList.innerHTML = '';
+    const wishes = snapshot.docs.map((entry) => ({ id: entry.id, ...entry.data() }));
+    wishes.sort((a, b) => Number(b.priority) - Number(a.priority) || Number(b.likesCount || 0) - Number(a.likesCount || 0));
+    wishes.forEach((wish) => wishList.appendChild(renderWish(wish)));
+    emptyWishes.classList.toggle('hidden', wishes.length > 0);
+  }, () => {
+    setStatus(wishStatus, 'Die Wunschliste konnte nicht geladen werden.', 'error');
+  });
+};
+
+const eventIsOpen = (data) => {
+  const now = Date.now();
+  const start = data.startAt?.toMillis?.() ?? 0;
+  const end = data.endAt?.toMillis?.() ?? 0;
+  return data.enabled === true && now >= start && now <= end;
+};
+
+openEventButton?.addEventListener('click', async () => {
+  const code = normalizeCode(eventCodeInput.value);
+  if (!code) return setStatus(eventStatus, 'Bitte gib den Veranstaltungscode ein.', 'error');
+
+  setStatus(eventStatus, 'Veranstaltung wird geprüft …');
+  try {
+    const reference = doc(db, 'events', code);
+    const snapshot = await getDoc(reference);
+    if (!snapshot.exists()) return setStatus(eventStatus, 'Der Veranstaltungscode wurde nicht gefunden.', 'error');
+
+    const data = snapshot.data();
+    if (!eventIsOpen(data)) return setStatus(eventStatus, 'Für diese Veranstaltung sind derzeit keine Musikwünsche freigeschaltet.', 'error');
+
+    currentEventId = code;
+    currentEvent = data;
+    eventLogin.classList.add('hidden');
+    appShell.classList.remove('hidden');
+    eventBanner.textContent = `${data.name} · Musikwünsche sind freigeschaltet.`;
+    watchWishes();
+  } catch (error) {
+    setStatus(eventStatus, 'Die Veranstaltung konnte nicht geladen werden.', 'error');
+  }
+});
+
+wishForm?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  if (!wishForm.reportValidity() || !currentEventId || !auth.currentUser) return;
+
+  const firstName = document.querySelector('#first-name').value.trim();
+  const artist = document.querySelector('#artist').value.trim();
+  const title = document.querySelector('#song-title').value.trim();
+  const priorityValueNumber = Number(priority.value);
+  const ownerUid = auth.currentUser.uid;
+  const artistNormalized = normalizeText(artist);
+  const titleNormalized = normalizeText(title);
+
+  setStatus(wishStatus, 'Wunsch wird geprüft …');
+
+  try {
+    const ownQuery = query(
+      collection(db, 'events', currentEventId, 'wishPrivate'),
+      where('ownerUid', '==', ownerUid),
+      orderBy('createdAt', 'desc'),
+      limit(50)
+    );
+    const ownSnapshot = await getDocs(ownQuery);
+    const ownWishes = ownSnapshot.docs.map((entry) => entry.data());
+    const duplicate = ownWishes.some((entry) => entry.artistNormalized === artistNormalized && entry.titleNormalized === titleNormalized);
+    if (duplicate) return setStatus(wishStatus, 'Diesen Titel hast du bereits eingereicht.', 'error');
+
+    const newest = ownWishes[0]?.createdAt?.toMillis?.() || 0;
+    const waitMs = 10 * 60 * 1000 - (Date.now() - newest);
+    if (waitMs > 0) {
+      const minutes = Math.ceil(waitMs / 60000);
+      return setStatus(wishStatus, `Bitte warte noch etwa ${minutes} Minute(n), bevor du einen weiteren Wunsch einreichst.`, 'error');
+    }
+
+    const publicRef = doc(collection(db, 'events', currentEventId, 'wishes'));
+    const privateRef = doc(db, 'events', currentEventId, 'wishPrivate', publicRef.id);
+    const batch = writeBatch(db);
+    batch.set(publicRef, {
+      artist, title, priority: priorityValueNumber, likesCount: 0,
+      hidden: false, status: 'open', createdAt: serverTimestamp()
+    });
+    batch.set(privateRef, {
+      ownerUid, firstName, artistNormalized, titleNormalized,
+      createdAt: serverTimestamp()
+    });
+    await batch.commit();
+
+    wishForm.reset();
+    priority.value = '5';
+    priorityValue.textContent = '5';
+    setStatus(wishStatus, 'Dein Musikwunsch wurde eingereicht.', 'success');
+  } catch (error) {
+    console.error(error);
+    setStatus(wishStatus, 'Der Musikwunsch konnte nicht gespeichert werden.', 'error');
+  }
+});
+
+async function likeWish(wishId, button) {
+  if (!auth.currentUser || !currentEventId) return;
+  button.disabled = true;
+  const uid = auth.currentUser.uid;
+  const wishRef = doc(db, 'events', currentEventId, 'wishes', wishId);
+  const likeRef = doc(db, 'events', currentEventId, 'wishes', wishId, 'likes', uid);
+  try {
+    await runTransaction(db, async (transaction) => {
+      const likeSnapshot = await transaction.get(likeRef);
+      if (likeSnapshot.exists()) throw new Error('already-liked');
+      const wishSnapshot = await transaction.get(wishRef);
+      if (!wishSnapshot.exists()) throw new Error('missing-wish');
+      transaction.set(likeRef, { createdAt: serverTimestamp() });
+      transaction.update(wishRef, { likesCount: Number(wishSnapshot.data().likesCount || 0) + 1 });
+    });
+  } catch (error) {
+    if (error.message === 'already-liked') setStatus(wishStatus, 'Diesen Titel hast du bereits gelikt.', 'error');
+    else setStatus(wishStatus, 'Der Like konnte nicht gespeichert werden.', 'error');
+  } finally {
+    button.disabled = false;
+  }
+}
