@@ -194,6 +194,20 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.
 @media(max-width:1050px){.review-grid{grid-template-columns:1fr 1fr}.review-page-layout,.admin-review-grid{grid-template-columns:1fr}.review-form-card{position:static}.admin-review-item{grid-template-columns:auto minmax(0,1fr)}.admin-review-actions{grid-column:2;justify-content:flex-start}}
 @media(max-width:700px){.home-reviews{padding:22px}.home-reviews-head{display:block}.review-grid,.review-public-panel .review-grid{grid-template-columns:1fr}.review-code-row,.review-code-create{grid-template-columns:1fr}.review-code-card{grid-template-columns:1fr}.review-code-actions{justify-content:flex-start}.review-summary-row{grid-template-columns:1fr 1fr 1fr}.admin-review-item{grid-template-columns:auto minmax(0,1fr)}}
 
+
+.review-public-page{max-width:1240px;margin:0 auto}
+.review-public-panel.review-public-page .review-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.review-page-actions{display:flex;justify-content:flex-end;margin-top:20px}
+.review-submit-page{max-width:920px}
+.review-form-page{position:static;max-width:760px;margin:0 auto}
+@media(max-width:1050px){
+  .review-public-panel.review-public-page .review-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .review-public-panel.review-public-page .review-grid{grid-template-columns:1fr}
+  .review-page-actions{justify-content:stretch}
+  .review-page-actions button{width:100%}
+}
 </style>
 </head>
 <body>
@@ -330,13 +344,32 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.
   </div>
 </div></section>
 
+
 <section class="page" data-page="bewertungen">
   <div class="inner">
-    <a class="back" data-go="home" href="#home">← Zur Startseite</a>
-    <div class="page-top"><div><div class="eyebrow">Kundenerfahrungen</div><h1>Das sagen Kunden über mich</h1></div><div><p>Bewertungen werden nur mit einem persönlichen, einmal verwendbaren Code angenommen und vor der Veröffentlichung von mir geprüft.</p><button class="admin-link review-admin-trigger" data-open-review-admin type="button">Verwaltung</button></div></div>
-    <div class="review-page-layout">
-      <section class="review-public-panel"><h2>Veröffentlichte Bewertungen</h2><p class="legal-subtle">Die Texte werden unverändert veröffentlicht. Angezeigt werden nur Bewertungen, deren Veröffentlichung ausdrücklich erlaubt wurde.</p><div class="review-grid" id="allReviewGrid"><div class="review-empty">Kundenbewertungen werden geladen …</div></div></section>
-      <form class="review-form-card" id="reviewForm">
+    <a class="back" data-go="ueber-mich" href="#ueber-mich">← Zurück zu „Über mich“</a>
+    <div class="page-top">
+      <div><div class="eyebrow">Kundenerfahrungen</div><h1>Alle Kundenbewertungen</h1></div>
+      <div>
+        <p>Hier findest du alle von Kunden zur Veröffentlichung freigegebenen Erfahrungsberichte.</p>
+        <button class="admin-link review-admin-trigger" data-open-review-admin type="button">Verwaltung</button>
+      </div>
+    </div>
+    <section class="review-public-panel review-public-page"><h2>Veröffentlichte Bewertungen</h2><p class="legal-subtle">Die Texte werden unverändert veröffentlicht. Angezeigt werden nur Bewertungen, deren Veröffentlichung ausdrücklich erlaubt wurde.</p><div class="review-grid" id="allReviewGrid"><div class="review-empty">Kundenbewertungen werden geladen …</div></div></section>
+    <div class="review-page-actions">
+      <button class="solid" data-go="bewertung-abgeben" type="button">Bewertung abgeben</button>
+    </div>
+  </div>
+</section>
+
+<section class="page" data-page="bewertung-abgeben">
+  <div class="inner review-submit-page">
+    <a class="back" data-go="ueber-mich" href="#ueber-mich">← Zurück zu „Über mich“</a>
+    <div class="page-top">
+      <div><div class="eyebrow">Deine Erfahrung</div><h1>Bewertung abgeben</h1></div>
+      <p>Für die Abgabe benötigst du den persönlichen, einmal verwendbaren Bewertungscode von DJ Reifi.</p>
+    </div>
+    <form class="review-form-card review-form-page" id="reviewForm">
         <h2>Erfahrung eintragen</h2><p>Den persönlichen Bewertungscode erhältst du nach deiner Veranstaltung direkt von DJ Reifi.</p>
         <div class="review-code-row"><div class="field"><label for="reviewCodeInput">Bewertungscode *</label><input id="reviewCodeInput" name="reviewCode" maxlength="20" placeholder="z. B. REIFI-7K4M2Q" autocomplete="off" required></div><button class="ghost" id="checkReviewCode" type="button">Code prüfen</button></div>
         <div class="review-state info" id="reviewCodeState">Bitte zuerst deinen persönlichen Bewertungscode prüfen.</div>
@@ -353,7 +386,6 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.
           <div class="review-submit-note">Die Bewertung ist nach dem Absenden zunächst nur im geschützten Verwaltungsbereich sichtbar und wird nicht automatisch veröffentlicht. Hinweise zur Datenverarbeitung findest du unter <button class="footer-link" type="button" data-go="datenschutz">Datenschutz</button>.</div>
         </fieldset>
       </form>
-    </div>
   </div>
 </section>
 
@@ -379,7 +411,7 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.
     <section class="home-reviews" aria-labelledby="homeReviewsTitle">
           <div class="home-reviews-head"><div><div class="eyebrow">Echte Erfahrungen</div><h2 id="homeReviewsTitle">Das sagen Kunden über mich</h2></div><button class="admin-link review-admin-trigger" data-open-review-admin type="button">Verwaltung</button></div>
           <div class="review-grid" id="homeReviewGrid"><div class="review-empty">Kundenbewertungen werden geladen …</div></div>
-          <div class="review-actions"><button class="ghost" data-go="bewertungen" type="button">Alle Bewertungen ansehen</button><button class="solid" id="openReviewFormHome" data-go="bewertungen" type="button">Bewertung abgeben</button></div>
+          <div class="review-actions"><button class="ghost" data-go="bewertungen" type="button">Alle Bewertungen ansehen</button><button class="solid" id="openReviewFormHome" data-go="bewertung-abgeben" type="button">Bewertung abgeben</button></div>
         </section>
 
   </div>
@@ -2369,7 +2401,7 @@ function reviewCodeStatus(item) {
 function reviewShareLink(code) {
   const url = new URL(location.protocol === 'file:' ? 'https://djreifi.de/' : `${location.origin}${location.pathname}`);
   url.searchParams.set('reviewCode', code);
-  url.hash = 'bewertungen';
+  url.hash = 'bewertung-abgeben';
   return url.toString();
 }
 function renderReviewCodesAdmin() {
@@ -2554,7 +2586,7 @@ if (initialEventCode) {
 const initialReviewCode = normalizeReviewCode(new URLSearchParams(location.search).get('reviewCode'));
 if (initialReviewCode) {
   reviewCodeInput.value = initialReviewCode;
-  go('bewertungen');
+  go('bewertung-abgeben');
   authReady.then(() => document.getElementById('checkReviewCode').click());
 }
 </script>
