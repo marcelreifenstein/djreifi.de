@@ -63,6 +63,48 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.
 @media(max-width:1050px){.status-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-wishes-card .admin-wish-toolbar{grid-template-columns:1fr 1fr}.admin-wishes-card .select-visible{grid-column:1/2}.admin-wishes-card .bulk-wish-actions{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:620px){.status-overview{grid-template-columns:1fr 1fr}.admin-dashboard-card{padding:12px}.admin-modal-card{padding:16px}.event-qr-card .modal-actions button{width:100%}}
 
+
+/* Kundenbewertungen */
+.home-reviews{margin-top:52px;padding:34px;border:1px solid #272727;border-radius:26px;background:linear-gradient(145deg,#101010,#080808)}
+.home-reviews-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;margin-bottom:24px}
+.home-reviews-head h2{margin:6px 0 0;font-size:clamp(1.75rem,3vw,2.65rem)}
+.home-reviews-head p{max-width:620px;margin:0;color:#9b9b9b;line-height:1.7}
+.review-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.review-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.review-card{display:flex;flex-direction:column;min-height:230px;padding:22px;border:1px solid #252525;border-radius:20px;background:#0b0b0b}
+.review-stars{display:flex;gap:3px;color:#fff;font-size:1rem;letter-spacing:.04em}
+.review-card blockquote{margin:18px 0 24px;color:#d7d7d7;line-height:1.72;white-space:pre-wrap}
+.review-card footer{margin-top:auto;border:0;padding:0;color:#858585;font-size:.78rem;line-height:1.55}
+.review-card footer strong{display:block;color:#f1f1f1;font-size:.88rem}
+.review-empty{grid-column:1/-1;padding:26px;border:1px dashed #2c2c2c;border-radius:18px;color:#777;text-align:center}
+.review-page-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(330px,.8fr);gap:24px;align-items:start}
+.review-public-panel,.review-form-card{border:1px solid #272727;border-radius:24px;background:#0b0b0b;padding:24px}
+.review-public-panel h2,.review-form-card h2{margin:0 0 8px}
+.review-public-panel .review-grid{grid-template-columns:1fr 1fr;margin-top:20px}
+.review-form-card{position:sticky;top:94px}
+.review-code-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.review-state{margin-top:12px;padding:12px 14px;border:1px solid #2a2a2a;border-radius:14px;color:#9b9b9b;font-size:.8rem;line-height:1.55}
+.review-state.success{border-color:#4a4a4a;color:#fff}.review-state.error{border-color:#5b2b2b;color:#f3b6b6}.review-state.info{color:#aaa}
+.review-fieldset{border:0;padding:0;margin:18px 0 0;min-width:0}.review-fieldset:disabled{opacity:.45}
+.star-picker{display:flex;gap:6px;margin-top:7px}.star-picker button{width:42px;height:42px;border:1px solid #303030;border-radius:12px;background:#111;color:#555;font-size:1.35rem;cursor:pointer}.star-picker button.active,.star-picker button:hover{color:#fff;border-color:#686868;background:#202020}
+.review-counter{display:flex;justify-content:flex-end;margin-top:6px;color:#666;font-size:.7rem}
+.review-consent{display:flex;gap:10px;align-items:flex-start;margin-top:16px;color:#a7a7a7;font-size:.76rem;line-height:1.55}.review-consent input{margin-top:3px}
+.review-submit-note{margin-top:12px;color:#717171;font-size:.72rem;line-height:1.55}
+.admin-reviews-card{grid-column:1/-1}
+.admin-review-grid{display:grid;grid-template-columns:minmax(330px,.72fr) minmax(0,1.28fr);gap:18px}
+.review-code-create{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.review-code-list,.admin-review-list{display:grid;gap:10px;margin-top:14px}
+.review-code-card,.admin-review-item{border:1px solid #292929;border-radius:16px;background:#0c0c0c;padding:15px}
+.review-code-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center}
+.review-code-card strong{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}.review-code-card small{display:block;color:#777;margin-top:5px;line-height:1.5}
+.review-code-actions,.admin-review-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.review-code-actions button,.admin-review-actions button{border:1px solid #303030;background:#121212;color:#aaa;border-radius:10px;padding:8px 10px;cursor:pointer;font-size:.72rem}.review-code-actions button:hover,.admin-review-actions button:hover{color:#fff;border-color:#555}.review-code-actions .danger,.admin-review-actions .danger{color:#e7a2a2;border-color:#4a2727}
+.review-status-badge{display:inline-flex;align-items:center;border:1px solid #333;border-radius:999px;padding:4px 9px;font-size:.64rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#aaa}.review-status-badge.pending,.review-status-badge.open{color:#fff}.review-status-badge.published{border-color:#48604f;color:#bde4c7}.review-status-badge.used{color:#aaa}.review-status-badge.hidden{border-style:dashed;color:#999}.review-status-badge.expired{color:#c59e9e;border-color:#553737}
+.admin-review-toolbar{display:flex;align-items:end;gap:10px;flex-wrap:wrap;margin:14px 0}.admin-review-toolbar .field{min-width:180px}.admin-review-toolbar label{font-size:.72rem;color:#9a9a9a}
+.admin-review-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:start}.admin-review-item input[type=checkbox]{margin-top:5px}.admin-review-item h5{margin:8px 0 4px;font-size:1rem}.admin-review-meta{color:#777;font-size:.72rem;line-height:1.55}.admin-review-text{margin:12px 0 0;color:#d1d1d1;line-height:1.65;white-space:pre-wrap}.admin-review-code{margin-top:10px;color:#666;font-size:.68rem}
+.review-summary-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.review-summary-row div{border:1px solid #282828;border-radius:14px;padding:11px}.review-summary-row span{display:block;color:#777;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em}.review-summary-row strong{display:block;margin-top:4px;font-size:1.25rem}
+@media(max-width:1050px){.review-grid{grid-template-columns:1fr 1fr}.review-page-layout,.admin-review-grid{grid-template-columns:1fr}.review-form-card{position:static}.admin-review-item{grid-template-columns:auto minmax(0,1fr)}.admin-review-actions{grid-column:2;justify-content:flex-start}}
+@media(max-width:700px){.home-reviews{padding:22px}.home-reviews-head{display:block}.review-grid,.review-public-panel .review-grid{grid-template-columns:1fr}.review-code-row,.review-code-create{grid-template-columns:1fr}.review-code-card{grid-template-columns:1fr}.review-code-actions{justify-content:flex-start}.review-summary-row{grid-template-columns:1fr 1fr 1fr}.admin-review-item{grid-template-columns:auto minmax(0,1fr)}}
+
 </style>
 </head>
 <body>
@@ -86,6 +128,11 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.
       <article class="tile tile-wish" data-go="musikwunsch"><div class="tile-bg wave"><svg viewBox="0 0 500 500" preserveAspectRatio="none"><g fill="none" stroke="white" stroke-width="1" opacity=".36"><path d="M0 138 C120 57, 210 439, 500 185"/><path d="M0 154 C120 66, 210 432, 500 190"/><path d="M0 170 C120 75, 210 425, 500 195"/><path d="M0 186 C120 84, 210 418, 500 200"/><path d="M0 202 C120 93, 210 411, 500 205"/><path d="M0 218 C120 102, 210 404, 500 210"/><path d="M0 234 C120 111, 210 397, 500 215"/><path d="M0 250 C120 120, 210 390, 500 220"/><path d="M0 266 C120 129, 210 383, 500 225"/><path d="M0 282 C120 138, 210 376, 500 230"/><path d="M0 298 C120 147, 210 369, 500 235"/><path d="M0 314 C120 156, 210 362, 500 240"/><path d="M0 330 C120 165, 210 355, 500 245"/><path d="M0 346 C120 174, 210 348, 500 250"/><path d="M0 362 C120 183, 210 341, 500 255"/></g></svg></div><div class="arrow">↗</div><div class="tile-content"><div class="tile-number">04 / LIVE AUF DER FEIER</div><h2>Musikwunsch</h2><p>Veranstaltungscode eingeben, Titel wünschen und bestehende Wünsche liken.</p></div></article>
       <article class="tile tile-about" data-go="ueber-mich"><div class="tile-bg about-art"><img src="data:image/png;base64,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" alt="DJ Reifi R-Logo"></div><div class="arrow">↗</div><div class="tile-content"><div class="tile-number">05 / PERSÖNLICH</div><h2>Über mich</h2><p>Wo meine Begeisterung für Musik begann und was mich als DJ ausmacht.</p></div></article>
     </div>
+    <section class="home-reviews" aria-labelledby="homeReviewsTitle">
+      <div class="home-reviews-head"><div><div class="eyebrow">Echte Erfahrungen</div><h2 id="homeReviewsTitle">Das sagen Kunden über mich</h2></div><p>Freigegebene Rückmeldungen von Kunden nach ihren Veranstaltungen. Neue Einträge erscheinen erst nach meiner Prüfung.</p></div>
+      <div class="review-grid" id="homeReviewGrid"><div class="review-empty">Kundenbewertungen werden geladen …</div></div>
+      <div class="review-actions"><button class="ghost" data-go="bewertungen" type="button">Alle Bewertungen ansehen</button><button class="solid" id="openReviewFormHome" data-go="bewertungen" type="button">Bewertung abgeben</button></div>
+    </section>
   </div>
 </section>
 
@@ -198,6 +245,33 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.
   </div>
 </div></section>
 
+<section class="page" data-page="bewertungen">
+  <div class="inner">
+    <a class="back" data-go="home" href="#home">← Zur Startseite</a>
+    <div class="page-top"><div><div class="eyebrow">Kundenerfahrungen</div><h1>Das sagen Kunden über mich</h1></div><p>Bewertungen werden nur mit einem persönlichen, einmal verwendbaren Code angenommen und vor der Veröffentlichung von mir geprüft.</p></div>
+    <div class="review-page-layout">
+      <section class="review-public-panel"><h2>Veröffentlichte Bewertungen</h2><p class="legal-subtle">Die Texte werden unverändert veröffentlicht. Angezeigt werden nur Bewertungen, deren Veröffentlichung ausdrücklich erlaubt wurde.</p><div class="review-grid" id="allReviewGrid"><div class="review-empty">Kundenbewertungen werden geladen …</div></div></section>
+      <form class="review-form-card" id="reviewForm">
+        <h2>Erfahrung eintragen</h2><p>Den persönlichen Bewertungscode erhältst du nach deiner Veranstaltung direkt von DJ Reifi.</p>
+        <div class="review-code-row"><div class="field"><label for="reviewCodeInput">Bewertungscode *</label><input id="reviewCodeInput" name="reviewCode" maxlength="20" placeholder="z. B. REIFI-7K4M2Q" autocomplete="off" required></div><button class="ghost" id="checkReviewCode" type="button">Code prüfen</button></div>
+        <div class="review-state info" id="reviewCodeState">Bitte zuerst deinen persönlichen Bewertungscode prüfen.</div>
+        <fieldset class="review-fieldset" id="reviewFields" disabled>
+          <div class="fields">
+            <div class="field full"><label for="reviewEventType">Art der Veranstaltung *</label><input id="reviewEventType" maxlength="80" placeholder="z. B. Hochzeit, Geburtstag oder Firmenfeier" required></div>
+            <div class="field full"><label for="reviewDisplayName">Bezeichnung für die Veröffentlichung *</label><input id="reviewDisplayName" maxlength="80" placeholder="z. B. Lisa &amp; Tom oder Brautpaar aus Eberswalde" required></div>
+            <div class="field full"><label for="reviewYear">Veranstaltungsjahr *</label><input id="reviewYear" type="number" min="2000" max="2100" step="1" required></div>
+            <div class="field full"><label>Bewertung *</label><div class="star-picker" id="reviewStarPicker" role="radiogroup" aria-label="Bewertung von 1 bis 5 Sternen"><button type="button" data-review-rating="1" aria-label="1 Stern">★</button><button type="button" data-review-rating="2" aria-label="2 Sterne">★</button><button type="button" data-review-rating="3" aria-label="3 Sterne">★</button><button type="button" data-review-rating="4" aria-label="4 Sterne">★</button><button type="button" data-review-rating="5" aria-label="5 Sterne">★</button></div><input id="reviewRating" type="hidden" value="0"></div>
+            <div class="field full"><label for="reviewText">Deine Erfahrung *</label><textarea id="reviewText" maxlength="1000" rows="7" placeholder="Wie hast du die Zusammenarbeit, Musik, Technik und Stimmung erlebt?" required></textarea><div class="review-counter"><span id="reviewTextCount">0</span>/1000</div></div>
+          </div>
+          <label class="review-consent"><input id="reviewConsent" type="checkbox" required><span>Ich stimme zu, dass meine Bezeichnung, Veranstaltungsart, das Veranstaltungsjahr, die Sternebewertung und mein Text auf djreifi.de veröffentlicht werden dürfen. Die Einwilligung kann ich für die Zukunft per E-Mail widerrufen.</span></label>
+          <button class="solid" id="submitReview" type="submit" style="width:100%;margin-top:18px">Bewertung zur Prüfung senden</button>
+          <div class="review-submit-note">Die Bewertung ist nach dem Absenden zunächst nur im geschützten Verwaltungsbereich sichtbar und wird nicht automatisch veröffentlicht. Hinweise zur Datenverarbeitung findest du unter <button class="footer-link" type="button" data-go="datenschutz">Datenschutz</button>.</div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section class="page" data-page="ueber-mich">
   <div class="inner">
     <a class="back" data-go="home" href="#home">← Zur Startseite</a>
@@ -264,35 +338,40 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.
       <p>Technischer Anbieter ist Google Firebase. Eingesetzt werden Firebase Authentication und Cloud Firestore. Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland; eine Verarbeitung durch Google LLC in den USA kann stattfinden. Informationen zur Datenverarbeitung, Sicherheit und internationalen Übermittlung stellt Google unter <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Datenschutz und Sicherheit bei Firebase</a> sowie in der <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">Google-Datenschutzerklärung</a> bereit.</p>
       <p>Die zu einer Veranstaltung gespeicherten Musikwünsche, Vornamen, Likes und Teilnehmerdaten werden gelöscht, wenn die Veranstaltung im Verwaltungsbereich endgültig gelöscht wird. Einzelne Musikwünsche können ebenfalls endgültig entfernt werden. Die anonyme technische Firebase-Kennung kann bis zur Löschung der Browserdaten beziehungsweise einer administrativen Bereinigung des anonymen Firebase-Kontos bestehen bleiben.</p>
 
-      <h2>5. Speicherung auf dem Endgerät</h2>
+      <h2>5. Kundenbewertungen mit Firebase</h2>
+      <p>Für das Bewertungsformular werden der persönliche Bewertungscode, die frei gewählte öffentliche Bezeichnung, die Art und das Jahr der Veranstaltung, die Sternebewertung, der eingegebene Bewertungstext, der Zeitpunkt der Einreichung und eine anonyme technische Firebase-Benutzerkennung verarbeitet. Der Bewertungscode ist nur einmal verwendbar und läuft grundsätzlich 30 Tage nach seiner Erstellung ab.</p>
+      <p>Die Bewertung wird zunächst ausschließlich im geschützten Verwaltungsbereich gespeichert. Sie erscheint erst öffentlich, nachdem ich sie geprüft und freigegeben habe. Der eingereichte Text wird von mir nicht verändert. Ausgeblendete Bewertungen sind öffentlich nicht sichtbar; Bewertungen können im Verwaltungsbereich endgültig gelöscht werden.</p>
+      <p>Die Veröffentlichung der vom Kunden gewählten Bezeichnung, Veranstaltungsart, des Veranstaltungsjahres, der Sternebewertung und des Textes erfolgt auf Grundlage einer ausdrücklichen Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft per E-Mail widerrufen werden. Die technische Bereitstellung und Missbrauchsvermeidung erfolgt zusätzlich auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Als technischer Dienst wird ebenfalls Google Firebase mit Firebase Authentication und Cloud Firestore eingesetzt.</p>
+
+      <h2>6. Speicherung auf dem Endgerät</h2>
       <p>Der zuletzt eingegebene Veranstaltungscode wird im lokalen Speicher des Browsers gespeichert. Firebase Authentication speichert außerdem technisch notwendige Informationen zur anonymen Anmeldung, damit Wunschlimit, Sperrzeit und die Begrenzung auf einen Like pro Veranstaltung funktionieren. Diese Speicherung ist für die ausdrücklich aufgerufene Musikwunschfunktion erforderlich. Rechtsgrundlage für den Zugriff auf das Endgerät ist § 25 Abs. 2 Nr. 2 TDDDG; die anschließende Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
       <p>Du kannst diese Informationen durch Löschen der Website- beziehungsweise Browserdaten entfernen. Danach wird bei erneuter Nutzung eine neue anonyme Kennung erzeugt.</p>
 
-      <h2>6. Externe Skripte und QR-Code-Erstellung</h2>
+      <h2>7. Externe Skripte und QR-Code-Erstellung</h2>
       <p>Die für Firebase benötigten JavaScript-Module werden über Server von Google geladen. Dadurch wird technisch bedingt deine IP-Adresse an Google übermittelt. Eine QR-Code-Bibliothek wird ausschließlich beim Öffnen der QR-Code-Funktion im geschützten Verwaltungsbereich über jsDelivr geladen. Dabei kann die IP-Adresse des Administrators an jsDelivr übermittelt werden. Weitere Informationen bietet die <a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von jsDelivr</a>.</p>
 
-      <h2>7. Keine Analyse- oder Werbeverfolgung</h2>
+      <h2>8. Keine Analyse- oder Werbeverfolgung</h2>
       <p>Auf dieser Website werden weder Google Analytics noch Werbenetzwerke, Marketing-Pixel oder Social-Media-Tracking eingesetzt. Es werden keine nicht notwendigen Tracking-Cookies gesetzt. Deshalb wird derzeit kein Einwilligungsbanner verwendet.</p>
 
-      <h2>8. Empfänger und Drittlandübermittlungen</h2>
+      <h2>9. Empfänger und Drittlandübermittlungen</h2>
       <p>Empfänger personenbezogener Daten können die oben genannten technischen Dienstleister GitHub, Formspree und Google Firebase sein. Soweit Daten in die USA übermittelt werden, stützen die Anbieter die Übermittlung nach ihren Angaben insbesondere auf das EU-US Data Privacy Framework und/oder die von der Europäischen Kommission genehmigten Standardvertragsklauseln.</p>
 
-      <h2>9. Deine Rechte</h2>
+      <h2>10. Deine Rechte</h2>
       <p>Du hast im gesetzlichen Rahmen insbesondere das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit. Soweit eine Verarbeitung auf Art. 6 Abs. 1 lit. f DSGVO beruht, kannst du aus Gründen, die sich aus deiner besonderen Situation ergeben, Widerspruch einlegen. Außerdem besteht ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde.</p>
       <p>Für Datenschutzanfragen genügt eine E-Mail an <a href="mailto:marcelreifenstein@yahoo.com">marcelreifenstein@yahoo.com</a>.</p>
 
-      <h2>10. Datensicherheit und Aktualisierung</h2>
+      <h2>11. Datensicherheit und Aktualisierung</h2>
       <p>Die Website soll ausschließlich verschlüsselt über HTTPS ausgeliefert werden. Ich setze angemessene technische und organisatorische Maßnahmen ein, um Daten vor Verlust, Manipulation und unbefugtem Zugriff zu schützen. Diese Datenschutzerklärung wird angepasst, wenn sich Funktionen, Dienstleister oder rechtliche Anforderungen ändern.</p>
-      <p class="legal-subtle">Stand: 22. Juli 2026</p>
+      <p class="legal-subtle">Stand: 26. Juli 2026</p>
     </article>
   </div>
 </section>
 
-<footer class="footer"><div class="footer-copy"><span>© 2026 DJ Reifi</span></div><nav class="social-nav" aria-label="Social Media"><span class="social-label">Social</span><a class="social-link" href="https://www.instagram.com/reifi_/" target="_blank" rel="noopener noreferrer" aria-label="DJ Reifi auf Instagram">Instagram</a><a class="social-link" href="https://www.facebook.com/share/1DRhd9Qi4p/" target="_blank" rel="noopener noreferrer" aria-label="DJ Reifi auf Facebook">Facebook</a><a class="social-link" href="https://youtube.com/@reifiofficial?si=LQwbyRwgkTQ_yIa8" target="_blank" rel="noopener noreferrer" aria-label="DJ Reifi auf YouTube">YouTube</a><a class="social-link" href="https://soundcloud.com/reifi7" target="_blank" rel="noopener noreferrer" aria-label="DJ Reifi auf SoundCloud">SoundCloud</a><a class="social-link" href="https://www.tiktok.com/@reifi" target="_blank" rel="noopener noreferrer" aria-label="DJ Reifi auf TikTok">TikTok</a></nav><nav class="footer-nav" aria-label="Rechtliches"><button class="footer-link" data-go="impressum">Impressum</button><button class="footer-link" data-go="datenschutz">Datenschutz</button><button class="footer-link" data-go="anfrage">Kontakt</button></nav></footer>
+<footer class="footer"><div class="footer-copy"><span>© 2026 DJ Reifi</span></div><nav class="social-nav" aria-label="Social Media"><span class="social-label">Social</span><a class="social-link" href="https://www.instagram.com/reifi_/" target="_blank" rel="noopener noreferrer" aria-label="DJ Reifi auf Instagram">Instagram</a><a class="social-link" href="https://www.facebook.com/share/1DRhd9Qi4p/" target="_blank" rel="noopener noreferrer" aria-label="DJ Reifi auf Facebook">Facebook</a><a class="social-link" href="https://youtube.com/@reifiofficial?si=LQwbyRwgkTQ_yIa8" target="_blank" rel="noopener noreferrer" aria-label="DJ Reifi auf YouTube">YouTube</a><a class="social-link" href="https://soundcloud.com/reifi7" target="_blank" rel="noopener noreferrer" aria-label="DJ Reifi auf SoundCloud">SoundCloud</a><a class="social-link" href="https://www.tiktok.com/@reifi" target="_blank" rel="noopener noreferrer" aria-label="DJ Reifi auf TikTok">TikTok</a></nav><nav class="footer-nav" aria-label="Rechtliches"><button class="footer-link" data-go="impressum">Impressum</button><button class="footer-link" data-go="datenschutz">Datenschutz</button><button class="footer-link" data-go="bewertungen">Kundenstimmen</button><button class="footer-link" data-go="anfrage">Kontakt</button></nav></footer>
 </div>
 
 <div class="modal" id="adminModal"><div class="modal-card admin-modal-card">
-  <div class="modal-head"><h3>Musikwunsch-Verwaltung</h3><button class="close" data-close="adminModal">×</button></div>
+  <div class="modal-head"><h3>DJ Reifi – Verwaltung</h3><button class="close" data-close="adminModal">×</button></div>
   <div class="admin-login" id="adminLoginPanel">
     <div class="admin-login-card">
       <strong>Geschützter Login</strong>
@@ -373,6 +452,24 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.
           <div class="admin-table" id="adminTable"><div class="admin-empty">Wähle eine Veranstaltung aus.</div></div>
         </div>
       </section>
+
+      <section class="admin-dashboard-card admin-reviews-card">
+        <div class="admin-dashboard-title"><span>03</span><div><h4>Kundenbewertungen</h4><p>Persönliche Codes erstellen, neue Bewertungen prüfen und Veröffentlichungen verwalten.</p></div></div>
+        <div class="admin-review-grid">
+          <div class="admin-section">
+            <h4>Bewertungscode erstellen</h4><p class="status-help">Jeder Code ist einmal verwendbar und läuft automatisch 30 Tage nach der Erstellung ab.</p>
+            <div class="review-code-create"><div class="field"><label for="reviewCodeLabel">Interne Zuordnung *</label><input id="reviewCodeLabel" maxlength="100" placeholder="z. B. Hochzeit Anna &amp; Tom"></div><button class="solid" id="createReviewCodeButton" type="button">Code erstellen</button></div>
+            <div class="admin-status" id="reviewCodeAdminStatus"></div>
+            <div class="review-code-list" id="reviewCodeList"><div class="admin-empty">Bewertungscodes werden geladen …</div></div>
+          </div>
+          <div class="admin-section">
+            <div class="admin-wish-heading"><div><h4>Bewertungen prüfen</h4><small id="adminReviewCount">Bewertungen werden geladen …</small></div><span class="review-status-badge pending" id="pendingReviewBadge">0 zur Prüfung</span></div>
+            <div class="review-summary-row"><div><span>Zur Prüfung</span><strong id="pendingReviewCount">0</strong></div><div><span>Veröffentlicht</span><strong id="publishedReviewCount">0</strong></div><div><span>Ausgeblendet</span><strong id="hiddenReviewCount">0</strong></div></div>
+            <div class="admin-review-toolbar"><div class="field compact"><label>Status</label><select id="adminReviewFilter"><option value="all">Alle</option><option value="pending">Zur Prüfung</option><option value="published">Veröffentlicht</option><option value="hidden">Ausgeblendet</option></select></div><label><input id="selectAllVisibleReviews" type="checkbox"> Sichtbare auswählen</label><div class="bulk-wish-actions"><button class="ghost" id="bulkPublishReviews" type="button" disabled>Veröffentlichen</button><button class="ghost" id="bulkHideReviews" type="button" disabled>Ausblenden</button><button class="ghost danger" id="bulkDeleteReviews" type="button" disabled>Endgültig löschen</button></div></div>
+            <div class="admin-review-list" id="adminReviewList"><div class="admin-empty">Noch keine Bewertung vorhanden.</div></div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
   </div>
@@ -404,6 +501,7 @@ import {
   updateDoc,
   deleteDoc,
   writeBatch,
+  runTransaction,
   onSnapshot,
   query,
   where,
@@ -460,6 +558,174 @@ document.querySelectorAll('[data-close]').forEach(button => button.addEventListe
 document.querySelectorAll('.modal').forEach(element => element.addEventListener('click', event => {
   if (event.target === element) element.classList.remove('open');
 }));
+
+
+// Kundenbewertungen: öffentliche Ansicht und Einreichung
+const homeReviewGrid = document.getElementById('homeReviewGrid');
+const allReviewGrid = document.getElementById('allReviewGrid');
+const reviewForm = document.getElementById('reviewForm');
+const reviewCodeInput = document.getElementById('reviewCodeInput');
+const reviewCodeState = document.getElementById('reviewCodeState');
+const reviewFields = document.getElementById('reviewFields');
+const reviewRating = document.getElementById('reviewRating');
+const reviewText = document.getElementById('reviewText');
+const reviewTextCount = document.getElementById('reviewTextCount');
+let verifiedReviewCode = '';
+let publicReviews = [];
+
+function normalizeReviewCode(value) {
+  return String(value || '').toUpperCase().trim().replace(/[^A-Z0-9-]/g, '').slice(0, 20);
+}
+function timestampMillis(value) {
+  if (!value) return 0;
+  if (typeof value.toMillis === 'function') return value.toMillis();
+  if (typeof value.seconds === 'number') return value.seconds * 1000;
+  return 0;
+}
+function reviewStars(rating) {
+  const value = Math.max(1, Math.min(5, Number(rating) || 0));
+  return `<span class="review-stars" aria-label="${value} von 5 Sternen">${'★'.repeat(value)}${'☆'.repeat(5 - value)}</span>`;
+}
+function reviewCard(review) {
+  return `<article class="review-card">${reviewStars(review.rating)}<blockquote>„${esc(review.text)}“</blockquote><footer><strong>${esc(review.displayName)}</strong>${esc(review.eventType)} · ${esc(review.eventYear)}</footer></article>`;
+}
+function renderPublicReviews() {
+  const sorted = [...publicReviews].sort((a, b) => timestampMillis(b.publishedAt || b.submittedAt) - timestampMillis(a.publishedAt || a.submittedAt));
+  const empty = '<div class="review-empty">Sobald die ersten geprüften Kundenbewertungen veröffentlicht sind, erscheinen sie hier.</div>';
+  homeReviewGrid.innerHTML = sorted.length ? sorted.slice(0, 3).map(reviewCard).join('') : empty;
+  allReviewGrid.innerHTML = sorted.length ? sorted.map(reviewCard).join('') : empty;
+}
+onSnapshot(query(collection(db, 'reviews'), where('status', '==', 'published')), snapshot => {
+  publicReviews = snapshot.docs.map(item => ({ id: item.id, ...item.data() }));
+  renderPublicReviews();
+}, error => {
+  console.error('Öffentliche Bewertungen:', error);
+  const message = '<div class="review-empty">Die Bewertungen konnten derzeit nicht geladen werden.</div>';
+  homeReviewGrid.innerHTML = message;
+  allReviewGrid.innerHTML = message;
+});
+
+function setReviewCodeState(type, message) {
+  reviewCodeState.className = `review-state ${type}`;
+  reviewCodeState.textContent = message;
+}
+function setReviewFieldsEnabled(enabled) {
+  reviewFields.disabled = !enabled;
+}
+function resetReviewVerification() {
+  verifiedReviewCode = '';
+  setReviewFieldsEnabled(false);
+  setReviewCodeState('info', 'Bitte zuerst deinen persönlichen Bewertungscode prüfen.');
+}
+reviewCodeInput.addEventListener('input', () => {
+  reviewCodeInput.value = normalizeReviewCode(reviewCodeInput.value);
+  if (verifiedReviewCode && reviewCodeInput.value !== verifiedReviewCode) resetReviewVerification();
+});
+
+document.getElementById('checkReviewCode').addEventListener('click', async () => {
+  const code = normalizeReviewCode(reviewCodeInput.value);
+  reviewCodeInput.value = code;
+  if (!code) {
+    setReviewCodeState('error', 'Bitte gib deinen Bewertungscode ein.');
+    return;
+  }
+  setReviewCodeState('info', 'Bewertungscode wird geprüft …');
+  try {
+    await authReady;
+    const snapshot = await getDoc(doc(db, 'reviewCodes', code));
+    if (!snapshot.exists()) throw new Error('invalid');
+    const data = snapshot.data();
+    const expired = timestampMillis(data.expiresAt) < Date.now();
+    if (data.used === true) throw new Error('used');
+    if (data.active !== true || expired) throw new Error('expired');
+    verifiedReviewCode = code;
+    setReviewFieldsEnabled(true);
+    setReviewCodeState('success', 'Code gültig. Du kannst deine Bewertung jetzt eintragen.');
+    document.getElementById('reviewEventType').focus();
+  } catch (error) {
+    verifiedReviewCode = '';
+    setReviewFieldsEnabled(false);
+    const message = error.message === 'used' ? 'Dieser Bewertungscode wurde bereits verwendet.' : error.message === 'expired' ? 'Dieser Bewertungscode ist nicht mehr gültig.' : 'Der Bewertungscode ist ungültig oder konnte nicht geprüft werden.';
+    setReviewCodeState('error', message);
+  }
+});
+
+document.querySelectorAll('[data-review-rating]').forEach(button => button.addEventListener('click', () => {
+  const rating = Number(button.dataset.reviewRating);
+  reviewRating.value = String(rating);
+  document.querySelectorAll('[data-review-rating]').forEach(item => {
+    const active = Number(item.dataset.reviewRating) <= rating;
+    item.classList.toggle('active', active);
+    item.setAttribute('aria-checked', active && Number(item.dataset.reviewRating) === rating ? 'true' : 'false');
+  });
+}));
+reviewText.addEventListener('input', () => { reviewTextCount.textContent = String(reviewText.value.length); });
+
+document.getElementById('openReviewFormHome')?.addEventListener('click', () => setTimeout(() => reviewCodeInput.focus(), 350));
+
+reviewForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  if (!verifiedReviewCode || verifiedReviewCode !== normalizeReviewCode(reviewCodeInput.value)) {
+    setReviewCodeState('error', 'Bitte prüfe den Bewertungscode erneut.');
+    return;
+  }
+  const eventType = document.getElementById('reviewEventType').value.trim();
+  const displayName = document.getElementById('reviewDisplayName').value.trim();
+  const eventYear = Number(document.getElementById('reviewYear').value);
+  const rating = Number(reviewRating.value);
+  const content = reviewText.value.trim();
+  const consent = document.getElementById('reviewConsent').checked;
+  if (!eventType || !displayName || !Number.isInteger(eventYear) || eventYear < 2000 || eventYear > 2100 || rating < 1 || rating > 5 || !content || !consent) {
+    setReviewCodeState('error', 'Bitte fülle alle Felder vollständig aus und bestätige die Veröffentlichung.');
+    return;
+  }
+  const button = document.getElementById('submitReview');
+  const oldText = button.textContent;
+  button.disabled = true;
+  button.textContent = 'Bewertung wird übermittelt …';
+  try {
+    const user = await authReady;
+    const code = verifiedReviewCode;
+    const codeRef = doc(db, 'reviewCodes', code);
+    const reviewRef = doc(db, 'reviews', code);
+    await runTransaction(db, async transaction => {
+      const codeSnapshot = await transaction.get(codeRef);
+      if (!codeSnapshot.exists()) throw new Error('used');
+      const codeData = codeSnapshot.data();
+      if (codeData.active !== true || codeData.used === true || timestampMillis(codeData.expiresAt) < Date.now()) throw new Error('expired');
+      transaction.set(reviewRef, {
+        code,
+        eventType,
+        displayName,
+        eventYear,
+        rating,
+        text: content,
+        consent: true,
+        status: 'pending',
+        ownerUid: user.uid,
+        submittedAt: serverTimestamp(),
+        updatedAt: serverTimestamp()
+      });
+      transaction.update(codeRef, {
+        used: true,
+        usedAt: serverTimestamp(),
+        usedBy: user.uid,
+        reviewId: code
+      });
+    });
+    setReviewCodeState('success', 'Vielen Dank. Deine Bewertung wurde übermittelt und wird vor einer Veröffentlichung geprüft.');
+    reviewFields.disabled = true;
+    reviewCodeInput.disabled = true;
+    document.getElementById('checkReviewCode').disabled = true;
+    button.textContent = 'Bewertung übermittelt';
+  } catch (error) {
+    console.error('Bewertung senden:', error);
+    const message = error.message === 'used' ? 'Dieser Code wurde bereits verwendet.' : error.message === 'expired' ? 'Dieser Code ist nicht mehr gültig.' : 'Die Bewertung konnte nicht gespeichert werden. Bitte versuche es erneut.';
+    setReviewCodeState('error', message);
+    button.disabled = false;
+    button.textContent = oldText;
+  }
+});
 
 // Anfrageformular / Formspree
 const switchButtons = [...document.querySelectorAll('.switcher button')];
@@ -556,6 +822,7 @@ onAuthStateChanged(auth, async user => {
   if (isAdmin) {
     document.getElementById('adminUserLabel').textContent = user.email || 'Administrator';
     startAdminEvents();
+    startAdminReviews();
   } else {
     stopAdminListeners();
   }
@@ -1105,6 +1372,7 @@ function stopAdminListeners() {
   adminEventsUnsub?.();
   adminEventsUnsub = null;
   stopAdminWishListeners();
+  stopAdminReviewListeners();
 }
 function startAdminEvents() {
   if (adminEventsUnsub) return;
@@ -1875,6 +2143,211 @@ document.getElementById('exportCsvButton').addEventListener('click', () => {
   toast('CSV-Datei wurde erstellt.');
 });
 
+
+// Kundenbewertungen: Adminverwaltung
+let adminReviewCodesUnsub = null;
+let adminReviewsUnsub = null;
+let adminReviewCodes = [];
+let adminReviews = [];
+let selectedReviewIds = new Set();
+
+function stopAdminReviewListeners() {
+  adminReviewCodesUnsub?.();
+  adminReviewsUnsub?.();
+  adminReviewCodesUnsub = adminReviewsUnsub = null;
+}
+function startAdminReviews() {
+  if (!adminReviewCodesUnsub) {
+    adminReviewCodesUnsub = onSnapshot(collection(db, 'reviewCodes'), snapshot => {
+      adminReviewCodes = snapshot.docs.map(item => ({ id: item.id, ...item.data() })).sort((a, b) => timestampMillis(b.createdAt) - timestampMillis(a.createdAt));
+      renderReviewCodesAdmin();
+      renderAdminReviews();
+    }, error => {
+      console.error('Bewertungscodes:', error);
+      document.getElementById('reviewCodeList').innerHTML = '<div class="admin-empty">Bewertungscodes konnten nicht geladen werden.</div>';
+    });
+  }
+  if (!adminReviewsUnsub) {
+    adminReviewsUnsub = onSnapshot(collection(db, 'reviews'), snapshot => {
+      adminReviews = snapshot.docs.map(item => ({ id: item.id, ...item.data() })).sort((a, b) => timestampMillis(b.submittedAt) - timestampMillis(a.submittedAt));
+      const existing = new Set(adminReviews.map(item => item.id));
+      selectedReviewIds = new Set([...selectedReviewIds].filter(id => existing.has(id)));
+      renderAdminReviews();
+    }, error => {
+      console.error('Admin-Bewertungen:', error);
+      document.getElementById('adminReviewList').innerHTML = '<div class="admin-empty">Bewertungen konnten nicht geladen werden.</div>';
+    });
+  }
+}
+function reviewCodeStatus(item) {
+  if (item.used === true) return { key: 'used', label: 'verwendet' };
+  if (item.active !== true) return { key: 'hidden', label: 'deaktiviert' };
+  if (timestampMillis(item.expiresAt) < Date.now()) return { key: 'expired', label: 'abgelaufen' };
+  return { key: 'open', label: 'offen' };
+}
+function reviewShareLink(code) {
+  const url = new URL(location.protocol === 'file:' ? 'https://djreifi.de/' : `${location.origin}${location.pathname}`);
+  url.searchParams.set('reviewCode', code);
+  url.hash = 'bewertungen';
+  return url.toString();
+}
+function renderReviewCodesAdmin() {
+  const list = document.getElementById('reviewCodeList');
+  list.innerHTML = adminReviewCodes.length ? adminReviewCodes.map(item => {
+    const status = reviewCodeStatus(item);
+    const expires = item.expiresAt ? new Date(timestampMillis(item.expiresAt)).toLocaleDateString('de-DE') : '–';
+    const canDelete = item.used !== true;
+    return `<div class="review-code-card"><div><span class="review-status-badge ${status.key}">${status.label}</span><strong>${esc(item.id)}</strong><small>${esc(item.internalLabel || 'Ohne interne Zuordnung')}<br>Gültig bis ${esc(expires)}</small></div><div class="review-code-actions"><button type="button" data-copy-review-code="${esc(item.id)}">Code</button><button type="button" data-copy-review-link="${esc(item.id)}">Link</button>${item.used === true ? '' : `<button type="button" data-toggle-review-code="${esc(item.id)}">${item.active === true ? 'Deaktivieren' : 'Aktivieren'}</button>`}<button class="danger" type="button" data-delete-review-code="${esc(item.id)}" ${canDelete ? '' : 'disabled title="Verwendete Codes bleiben als Nachweis erhalten"'}>Löschen</button></div></div>`;
+  }).join('') : '<div class="admin-empty">Noch kein Bewertungscode vorhanden.</div>';
+  list.querySelectorAll('[data-copy-review-code]').forEach(button => button.addEventListener('click', () => copyText(button.dataset.copyReviewCode, 'Bewertungscode kopiert.')));
+  list.querySelectorAll('[data-copy-review-link]').forEach(button => button.addEventListener('click', () => copyText(reviewShareLink(button.dataset.copyReviewLink), 'Bewertungslink kopiert.')));
+  list.querySelectorAll('[data-toggle-review-code]').forEach(button => button.addEventListener('click', async () => {
+    const item = adminReviewCodes.find(code => code.id === button.dataset.toggleReviewCode);
+    if (!item) return;
+    await updateDoc(doc(db, 'reviewCodes', item.id), { active: item.active !== true, updatedAt: serverTimestamp() });
+  }));
+  list.querySelectorAll('[data-delete-review-code]').forEach(button => button.addEventListener('click', async () => {
+    if (button.disabled) return;
+    const code = button.dataset.deleteReviewCode;
+    if (!confirm(`Soll der unbenutzte Bewertungscode ${code} wirklich gelöscht werden?`)) return;
+    await deleteDoc(doc(db, 'reviewCodes', code));
+    toast('Bewertungscode gelöscht.');
+  }));
+}
+function randomReviewCode() {
+  const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const values = new Uint32Array(6);
+  crypto.getRandomValues(values);
+  return `REIFI-${[...values].map(value => alphabet[value % alphabet.length]).join('')}`;
+}
+document.getElementById('createReviewCodeButton').addEventListener('click', async () => {
+  const labelInput = document.getElementById('reviewCodeLabel');
+  const status = document.getElementById('reviewCodeAdminStatus');
+  const internalLabel = labelInput.value.trim();
+  if (!internalLabel) {
+    status.className = 'admin-status error';
+    status.textContent = 'Bitte trage eine interne Zuordnung ein.';
+    return;
+  }
+  const button = document.getElementById('createReviewCodeButton');
+  button.disabled = true;
+  status.className = 'admin-status';
+  status.textContent = 'Code wird erstellt …';
+  try {
+    let code = '';
+    for (let attempt = 0; attempt < 8; attempt += 1) {
+      const candidate = randomReviewCode();
+      if (!(await getDoc(doc(db, 'reviewCodes', candidate))).exists()) { code = candidate; break; }
+    }
+    if (!code) throw new Error('Kein eindeutiger Code konnte erzeugt werden.');
+    const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+    await setDoc(doc(db, 'reviewCodes', code), {
+      internalLabel,
+      active: true,
+      used: false,
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+      expiresAt: Timestamp.fromDate(expires)
+    });
+    labelInput.value = '';
+    status.className = 'admin-status success';
+    status.textContent = `${code} wurde erstellt und ist 30 Tage gültig.`;
+    await copyText(reviewShareLink(code), 'Bewertungslink erstellt und kopiert.');
+  } catch (error) {
+    console.error('Bewertungscode erstellen:', error);
+    status.className = 'admin-status error';
+    status.textContent = 'Der Bewertungscode konnte nicht erstellt werden.';
+  } finally {
+    button.disabled = false;
+  }
+});
+
+function adminReviewStatusLabel(status) {
+  return status === 'published' ? 'Veröffentlicht' : status === 'hidden' ? 'Ausgeblendet' : 'Zur Prüfung';
+}
+function filteredAdminReviews() {
+  const filter = document.getElementById('adminReviewFilter').value;
+  return filter === 'all' ? adminReviews : adminReviews.filter(item => item.status === filter);
+}
+function updateAdminReviewSelection() {
+  const visible = filteredAdminReviews();
+  const visibleIds = visible.map(item => item.id);
+  const selectedVisible = visibleIds.filter(id => selectedReviewIds.has(id));
+  const selectAll = document.getElementById('selectAllVisibleReviews');
+  selectAll.checked = visibleIds.length > 0 && selectedVisible.length === visibleIds.length;
+  selectAll.indeterminate = selectedVisible.length > 0 && selectedVisible.length < visibleIds.length;
+  ['bulkPublishReviews', 'bulkHideReviews', 'bulkDeleteReviews'].forEach(id => { document.getElementById(id).disabled = selectedReviewIds.size === 0; });
+}
+function renderAdminReviews() {
+  const counts = {
+    pending: adminReviews.filter(item => item.status === 'pending').length,
+    published: adminReviews.filter(item => item.status === 'published').length,
+    hidden: adminReviews.filter(item => item.status === 'hidden').length
+  };
+  document.getElementById('pendingReviewCount').textContent = counts.pending;
+  document.getElementById('publishedReviewCount').textContent = counts.published;
+  document.getElementById('hiddenReviewCount').textContent = counts.hidden;
+  document.getElementById('pendingReviewBadge').textContent = `${counts.pending} zur Prüfung`;
+  document.getElementById('adminReviewCount').textContent = `${adminReviews.length} Bewertung${adminReviews.length === 1 ? '' : 'en'} insgesamt`;
+  const visible = filteredAdminReviews();
+  const codeMap = new Map(adminReviewCodes.map(item => [item.id, item]));
+  const list = document.getElementById('adminReviewList');
+  list.innerHTML = visible.length ? visible.map(item => {
+    const code = codeMap.get(item.code || item.id);
+    return `<article class="admin-review-item"><input type="checkbox" data-select-review="${esc(item.id)}" aria-label="Bewertung markieren" ${selectedReviewIds.has(item.id) ? 'checked' : ''}><div><span class="review-status-badge ${esc(item.status)}">${adminReviewStatusLabel(item.status)}</span>${reviewStars(item.rating)}<h5>${esc(item.displayName)} · ${esc(item.eventType)} · ${esc(item.eventYear)}</h5><div class="admin-review-meta">Eingereicht: ${formatDateTime(item.submittedAt)}</div><div class="admin-review-text">${esc(item.text)}</div><div class="admin-review-code">Code: ${esc(item.code || item.id)}${code?.internalLabel ? ` · interne Zuordnung: ${esc(code.internalLabel)}` : ''}</div></div><div class="admin-review-actions"><button type="button" data-review-publish="${esc(item.id)}">Veröffentlichen</button><button type="button" data-review-hide="${esc(item.id)}">Ausblenden</button><button class="danger" type="button" data-review-delete="${esc(item.id)}">Löschen</button></div></article>`;
+  }).join('') : '<div class="admin-empty">Für diesen Filter ist keine Bewertung vorhanden.</div>';
+  list.querySelectorAll('[data-select-review]').forEach(box => box.addEventListener('change', () => {
+    box.checked ? selectedReviewIds.add(box.dataset.selectReview) : selectedReviewIds.delete(box.dataset.selectReview);
+    updateAdminReviewSelection();
+  }));
+  list.querySelectorAll('[data-review-publish]').forEach(button => button.addEventListener('click', () => changeReviewStatus([button.dataset.reviewPublish], 'published')));
+  list.querySelectorAll('[data-review-hide]').forEach(button => button.addEventListener('click', () => changeReviewStatus([button.dataset.reviewHide], 'hidden')));
+  list.querySelectorAll('[data-review-delete]').forEach(button => button.addEventListener('click', () => deleteReviews([button.dataset.reviewDelete])));
+  updateAdminReviewSelection();
+}
+async function changeReviewStatus(ids, status) {
+  const unique = [...new Set(ids)].filter(Boolean);
+  if (!unique.length) return;
+  const batch = writeBatch(db);
+  unique.forEach(id => batch.update(doc(db, 'reviews', id), {
+    status,
+    updatedAt: serverTimestamp(),
+    ...(status === 'published' ? { publishedAt: serverTimestamp() } : { hiddenAt: serverTimestamp() })
+  }));
+  try {
+    await batch.commit();
+    selectedReviewIds = new Set([...selectedReviewIds].filter(id => !unique.includes(id)));
+    toast(status === 'published' ? 'Bewertung veröffentlicht.' : 'Bewertung ausgeblendet.');
+  } catch (error) {
+    console.error('Bewertungsstatus:', error);
+    toast('Der Bewertungsstatus konnte nicht geändert werden.');
+  }
+}
+async function deleteReviews(ids) {
+  const unique = [...new Set(ids)].filter(Boolean);
+  if (!unique.length) return;
+  if (!confirm(unique.length === 1 ? 'Soll diese Bewertung wirklich dauerhaft gelöscht werden?' : `Sollen die ${unique.length} markierten Bewertungen wirklich dauerhaft gelöscht werden?`)) return;
+  try {
+    const batch = writeBatch(db);
+    unique.forEach(id => batch.delete(doc(db, 'reviews', id)));
+    await batch.commit();
+    selectedReviewIds = new Set([...selectedReviewIds].filter(id => !unique.includes(id)));
+    toast(unique.length === 1 ? 'Bewertung gelöscht.' : `${unique.length} Bewertungen gelöscht.`);
+  } catch (error) {
+    console.error('Bewertungen löschen:', error);
+    toast('Die Bewertung konnte nicht gelöscht werden.');
+  }
+}
+document.getElementById('adminReviewFilter').addEventListener('change', renderAdminReviews);
+document.getElementById('selectAllVisibleReviews').addEventListener('change', event => {
+  const ids = filteredAdminReviews().map(item => item.id);
+  ids.forEach(id => event.target.checked ? selectedReviewIds.add(id) : selectedReviewIds.delete(id));
+  renderAdminReviews();
+});
+document.getElementById('bulkPublishReviews').addEventListener('click', () => changeReviewStatus([...selectedReviewIds], 'published'));
+document.getElementById('bulkHideReviews').addEventListener('click', () => changeReviewStatus([...selectedReviewIds], 'hidden'));
+document.getElementById('bulkDeleteReviews').addEventListener('click', () => deleteReviews([...selectedReviewIds]));
+
 resetEventEditor();
 
 // Veranstaltungscode direkt aus einem veranstaltungsspezifischen Link übernehmen.
@@ -1885,6 +2358,13 @@ if (initialEventCode) {
   eventCodeInput.value = initialEventCode;
   if (urlEventCode) go('musikwunsch');
   authReady.then(connectToEvent);
+}
+
+const initialReviewCode = normalizeReviewCode(new URLSearchParams(location.search).get('reviewCode'));
+if (initialReviewCode) {
+  reviewCodeInput.value = initialReviewCode;
+  go('bewertungen');
+  authReady.then(() => document.getElementById('checkReviewCode').click());
 }
 </script>
 </body></html>
