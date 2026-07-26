@@ -2377,8 +2377,7 @@ function renderReviewCodesAdmin() {
   list.innerHTML = adminReviewCodes.length ? adminReviewCodes.map(item => {
     const status = reviewCodeStatus(item);
     const expires = item.expiresAt ? new Date(timestampMillis(item.expiresAt)).toLocaleDateString('de-DE') : '–';
-    const canDelete = item.used !== true;
-    return `<div class="review-code-card"><div><span class="review-status-badge ${status.key}">${status.label}</span><strong>${esc(item.id)}</strong><small>${esc(item.internalLabel || 'Ohne interne Zuordnung')}<br>Gültig bis ${esc(expires)}</small></div><div class="review-code-actions"><button type="button" data-copy-review-code="${esc(item.id)}">Code</button><button type="button" data-copy-review-link="${esc(item.id)}">Link</button>${item.used === true ? '' : `<button type="button" data-toggle-review-code="${esc(item.id)}">${item.active === true ? 'Deaktivieren' : 'Aktivieren'}</button>`}<button class="danger" type="button" data-delete-review-code="${esc(item.id)}" ${canDelete ? '' : 'disabled title="Verwendete Codes bleiben als Nachweis erhalten"'}>Löschen</button></div></div>`;
+    return `<div class="review-code-card"><div><span class="review-status-badge ${status.key}">${status.label}</span><strong>${esc(item.id)}</strong><small>${esc(item.internalLabel || 'Ohne interne Zuordnung')}<br>Gültig bis ${esc(expires)}</small></div><div class="review-code-actions"><button type="button" data-copy-review-code="${esc(item.id)}">Code</button><button type="button" data-copy-review-link="${esc(item.id)}">Link</button>${item.used === true ? '' : `<button type="button" data-toggle-review-code="${esc(item.id)}">${item.active === true ? 'Deaktivieren' : 'Aktivieren'}</button>`}<button class="danger" type="button" data-delete-review-code="${esc(item.id)}">Löschen</button></div></div>`;
   }).join('') : '<div class="admin-empty">Noch kein Bewertungscode vorhanden.</div>';
   list.querySelectorAll('[data-copy-review-code]').forEach(button => button.addEventListener('click', () => copyText(button.dataset.copyReviewCode, 'Bewertungscode kopiert.')));
   list.querySelectorAll('[data-copy-review-link]').forEach(button => button.addEventListener('click', () => copyText(reviewShareLink(button.dataset.copyReviewLink), 'Bewertungslink kopiert.')));
@@ -2388,11 +2387,22 @@ function renderReviewCodesAdmin() {
     await updateDoc(doc(db, 'reviewCodes', item.id), { active: item.active !== true, updatedAt: serverTimestamp() });
   }));
   list.querySelectorAll('[data-delete-review-code]').forEach(button => button.addEventListener('click', async () => {
-    if (button.disabled) return;
     const code = button.dataset.deleteReviewCode;
-    if (!confirm(`Soll der unbenutzte Bewertungscode ${code} wirklich gelöscht werden?`)) return;
-    await deleteDoc(doc(db, 'reviewCodes', code));
-    toast('Bewertungscode gelöscht.');
+    const item = adminReviewCodes.find(entry => entry.id === code);
+    const message = item?.used === true
+      ? `Der Bewertungscode ${code} wurde bereits verwendet. Die abgegebene Kundenbewertung bleibt erhalten, aber die interne Zuordnung dieses Codes wird gelöscht. Möchtest du den Code wirklich endgültig löschen?`
+      : `Soll der Bewertungscode ${code} wirklich endgültig gelöscht werden?`;
+    if (!confirm(message)) return;
+
+    button.disabled = true;
+    try {
+      await deleteDoc(doc(db, 'reviewCodes', code));
+      toast('Bewertungscode gelöscht.');
+    } catch (error) {
+      console.error('Bewertungscode löschen:', error);
+      button.disabled = false;
+      toast('Der Bewertungscode konnte nicht gelöscht werden.');
+    }
   }));
 }
 function randomReviewCode() {
