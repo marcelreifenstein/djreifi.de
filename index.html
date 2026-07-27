@@ -15,6 +15,7 @@
 <link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
 <link href="/site.webmanifest" rel="manifest"/>
 <title>DJ Reifi – Musik, Technik &amp; Events</title>
+<meta name="dj-reifi-business-build" content="2026-07-27-kundenportal-mvp-1"/>
 <meta name="dj-reifi-build" content="2026-07-27-technikmiete-lightbox-v1"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"DJ Reifi","url":"https://djreifi.de/","logo":"https://djreifi.de/android-chrome-512x512.png","email":"mailto:marcelreifenstein@yahoo.com","sameAs":["https://www.instagram.com/reifi_/","https://www.facebook.com/share/1DRhd9Qi4p/","https://youtube.com/@reifiofficial?si=LQwbyRwgkTQ_yIa8","https://soundcloud.com/reifi7","https://www.tiktok.com/@reifi"],"telephone":"+49 1522 3904148"}</script>
 <script>if(location.protocol==='http:'&&/(^|\.)djreifi\.de$/i.test(location.hostname)){location.replace('https://'+location.host+location.pathname+location.search+location.hash)}</script>
@@ -433,6 +434,15 @@ body.package-lightbox-open{
 }
 </style>
 
+<script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+<style id="business-portal-style">
+.business-shell{display:grid;gap:18px}.business-card{border:1px solid var(--line);border-radius:22px;background:linear-gradient(155deg,#101010,#080808);padding:clamp(18px,3vw,30px);box-shadow:var(--shadow)}
+.business-card h2,.business-card h3,.business-card h4{margin-top:0}.business-muted{color:#8d8d8d;font-size:.82rem;line-height:1.6}.business-status{display:inline-flex;align-items:center;gap:7px;border:1px solid #3b3b3b;border-radius:999px;padding:7px 11px;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#bbb}.business-status.new,.business-status.draft{color:#ddd}.business-status.sent{border-color:#526074;color:#cad5e8}.business-status.accepted{border-color:#4c6c54;color:#c6e5cd}.business-status.confirmed{border-color:#4f765b;color:#d1efd7;background:#0d1710}.business-status.declined{border-color:#704545;color:#efc0c0;background:#180d0d}.business-status.expired{border-color:#5f5555;color:#baa}.business-login-layout{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:20px;align-items:start}.business-login-note{border:1px solid #292929;border-radius:18px;padding:20px;background:#080808}.business-login-note ol{margin:14px 0 0;padding-left:20px;color:#aaa;line-height:1.75}.business-portal-panel{display:grid;gap:18px}.business-offer-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}.business-offer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.business-fact{border:1px solid #292929;border-radius:14px;padding:13px;background:#090909}.business-fact span{display:block;color:#777;font-size:.68rem;text-transform:uppercase;letter-spacing:.09em}.business-fact strong{display:block;margin-top:6px;line-height:1.45}.business-lines{display:grid;gap:8px;margin-top:14px}.business-line{display:grid;grid-template-columns:minmax(0,1fr) 80px 130px 130px;gap:10px;align-items:center;border-bottom:1px solid #222;padding:10px 0}.business-line.business-line-head{color:#777;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em}.business-line strong:last-child{text-align:right}.business-total{display:grid;gap:8px;margin:18px 0 0 auto;max-width:420px}.business-total div{display:flex;justify-content:space-between;gap:20px}.business-total .grand{border-top:1px solid #3b3b3b;padding-top:11px;font-size:1.2rem}.business-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.business-actions .danger{border-color:#6b3535;color:#efb8b8;background:#160b0b}.business-response-box{border:1px solid #303030;border-radius:18px;padding:18px;background:#080808}.business-response-box textarea{min-height:90px}.business-questionnaire-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.business-step-button{border:1px solid #343434;border-radius:999px;padding:9px 12px;background:#0b0b0b;color:#888;cursor:pointer}.business-step-button.active{background:#fff;color:#050505;border-color:#fff;font-weight:750}.business-question-section{display:none}.business-question-section.active{display:block}.business-health-note{border-left:3px solid #fff;padding:10px 0 10px 16px;margin:14px 0;color:#c9c9c9;font-size:.82rem;line-height:1.65}.business-check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.business-check-option{display:flex;align-items:flex-start;gap:9px;border:1px solid #292929;border-radius:12px;padding:11px;background:#090909;color:#bbb;font-size:.82rem;line-height:1.45}.business-check-option input{margin-top:3px}.appointment-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.appointment-card{border:1px solid #292929;border-radius:15px;padding:14px;background:#090909}.appointment-card h4{font-size:.9rem;margin-bottom:12px}.portal-document-actions{display:flex;gap:9px;flex-wrap:wrap}.business-admin-modal-card{width:min(1650px,97vw);max-height:95vh}.business-admin-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-bottom:1px solid #292929;padding-bottom:16px;margin-bottom:16px}.business-admin-layout{display:grid;grid-template-columns:minmax(320px,.65fr) minmax(0,1.35fr);gap:16px}.business-case-list{display:grid;gap:9px;max-height:72vh;overflow:auto;padding-right:4px}.business-case-card{border:1px solid #2b2b2b;border-radius:15px;padding:13px;background:#090909;cursor:pointer}.business-case-card:hover,.business-case-card.active{border-color:#6d6d6d;background:#111}.business-case-card-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.business-case-card strong{display:block}.business-case-card small{display:block;color:#777;margin-top:4px;line-height:1.45}.business-case-card .business-status{font-size:.58rem;padding:5px 7px;flex:0 0 auto}.business-editor{display:grid;gap:14px}.business-editor-section{border:1px solid #2b2b2b;border-radius:17px;padding:16px;background:#090909}.business-editor-section h4{margin:0 0 14px}.offer-line-editor{display:grid;grid-template-columns:minmax(180px,1fr) 80px 120px auto;gap:8px;align-items:end;margin-bottom:8px}.offer-line-editor button{height:43px}.offer-editor-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.offer-editor-summary>div{border:1px solid #2b2b2b;border-radius:13px;padding:11px}.offer-editor-summary span{display:block;color:#777;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em}.offer-editor-summary strong{display:block;margin-top:5px}.timeline-list{display:grid;gap:8px;max-height:300px;overflow:auto}.timeline-item{border-left:2px solid #484848;padding:5px 0 5px 12px}.timeline-item strong{display:block;font-size:.82rem}.timeline-item span{display:block;color:#777;font-size:.7rem;margin-top:3px}.questionnaire-preview{white-space:pre-wrap;color:#bbb;font-size:.8rem;line-height:1.6;max-height:420px;overflow:auto}.business-empty{padding:22px;border:1px dashed #343434;border-radius:14px;color:#777;text-align:center}.business-admin-filter{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}.business-code-box{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.business-code-display{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;font-weight:800}.business-required{color:#bbb;font-size:.72rem;margin-top:5px}.business-save-state{min-height:20px;color:#aaa;font-size:.78rem;margin-top:10px}.business-save-state.error{color:#efaaaa}.business-save-state.success{color:#bfe0c6}.business-hidden{display:none!important}
+@media(max-width:1050px){.business-login-layout,.business-admin-layout{grid-template-columns:1fr}.business-case-list{max-height:360px}.appointment-grid{grid-template-columns:1fr}.offer-editor-summary{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.business-offer-grid,.business-check-grid{grid-template-columns:1fr}.business-line{grid-template-columns:minmax(0,1fr) 65px 100px}.business-line>*:last-child{grid-column:2/-1}.business-line-head{display:none}.offer-line-editor{grid-template-columns:1fr 70px 100px}.offer-line-editor button{grid-column:1/-1}.business-admin-modal-card{padding:13px}.business-admin-filter{grid-template-columns:1fr}.business-actions>*{width:100%}.portal-document-actions{display:grid;grid-template-columns:1fr}.portal-document-actions>*{width:100%}}
+</style>
+
 </head>
 <body>
 <div class="shell">
@@ -525,10 +535,62 @@ body.package-lightbox-open{
 <div class="field full"><label class="check"><input id="weatherConfirm" name="Witterungsschutz" type="checkbox" value="bestaetigt"/><span>Ich bestätige, dass der Einsatz indoor oder an einem vollständig trockenen und zuverlässig gegen Witterung geschützten Veranstaltungsort erfolgt.</span></label></div>
 </div>
 </div>
-<div class="privacy-inline">Hinweise zur Verarbeitung deiner Angaben findest du unter <button data-go="datenschutz" type="button">Datenschutz</button>.</div><div class="submit-row"><small>Nach der Anfrage werden aktuelle Preise, Bedingungen und der Fragebogen separat per E-Mail oder WhatsApp zugesendet.</small><button class="solid" id="submitInquiry" type="submit">Anfrage senden</button></div><div aria-live="polite" class="form-status info" id="formStatus" role="status"></div>
+<div class="privacy-inline">Hinweise zur Verarbeitung deiner Angaben findest du unter <button data-go="datenschutz" type="button">Datenschutz</button>.</div><div class="submit-row"><small>Die Anfrage wird zusätzlich in der geschützten Auftragsverwaltung gespeichert. Angebot, Entscheidung und Fragebogen laufen anschließend über das Kundenportal.</small><button class="solid" id="submitInquiry" type="submit">Anfrage senden</button></div><div aria-live="polite" class="form-status info" id="formStatus" role="status"></div>
 </form>
-<aside class="side-card"><h3>Klare Anfrage statt langer Fragebogen.</h3><p>Auf der Website werden nur die wichtigsten Angaben erfasst. Die ausführliche PDF mit dem vollständigen Fragebogen bleibt außerhalb der Website und kann jederzeit unabhängig aktualisiert werden.</p><div class="mini"><div><span>Empfänger</span><strong>marcelreifenstein@yahoo.com</strong></div><div><span>DJ-Dienstleistung</span><strong>Paketauswahl &amp; Ablauf</strong></div><div><span>Technikmiete</span><strong>Technik &amp; Einsatzzweck</strong></div></div></aside></div>
+<aside class="side-card"><h3>Alles in einem digitalen Ablauf.</h3><p>Nach deiner Anfrage erstellt DJ Reifi das persönliche Angebot direkt über die Website. Mit E-Mail-Adresse und Angebotscode kannst du es im Kundenportal prüfen, annehmen oder ablehnen und anschließend den passenden Fragebogen ausfüllen.</p><div class="mini"><div><span>Empfänger</span><strong>marcelreifenstein@yahoo.com</strong></div><div><span>Vorgangsarten</span><strong>DJ-Leistung oder Technikmiete</strong></div><div><span>Kundenportal</span><strong>Angebot, Fragebogen &amp; Termine</strong></div></div></aside></div>
 </div></section>
+
+<section class="page" data-page="kundenportal"><div class="inner">
+<a class="back" data-go="home" href="#home">← Zur Startseite</a>
+<div class="page-top"><div><div class="eyebrow">Persönlicher Zugang</div><h1>Kundenportal</h1></div><p>Hier kannst du dein Angebot prüfen, annehmen oder ablehnen, den Veranstaltungsfragebogen ausfüllen und drei Gesprächstermine vorschlagen.</p></div>
+<div class="business-shell">
+<section class="business-login-layout" id="customerPortalLoginArea">
+<form class="business-card" id="customerPortalLoginForm">
+<h2>Mit Angebot verbinden</h2>
+<div class="fields">
+<div class="field full"><label>E-Mail-Adresse aus der Anfrage *</label><input autocomplete="email" id="customerPortalEmail" required type="email"></div>
+<div class="field full"><label>Persönlicher Angebotscode *</label><input autocomplete="one-time-code" class="business-code-display" id="customerPortalCode" maxlength="20" required placeholder="z. B. 7KRM-4QPX-9T"></div>
+</div>
+<button class="solid" style="width:100%;margin-top:18px" type="submit">Angebot öffnen</button>
+<div class="business-save-state" id="customerPortalLoginState"></div>
+</form>
+<aside class="business-login-note"><strong>So funktioniert der Zugang</strong><ol><li>Nutze genau die E-Mail-Adresse, an die das Angebot gesendet wurde.</li><li>Der persönliche Code steht im Angebot und ist zunächst 30 Tage gültig.</li><li>Nach der endgültigen Buchungsbestätigung bleibt der Zugang bis 30 Tage nach der Veranstaltung aktiv.</li></ol></aside>
+</section>
+<section class="business-portal-panel" hidden id="customerPortalPanel">
+<div class="business-card">
+<div class="business-offer-head"><div><div class="eyebrow" id="portalCaseNumber">Vorgang</div><h2 id="portalOfferTitle">Persönliches Angebot</h2></div><span class="business-status" id="portalStatusBadge">–</span></div>
+<div class="business-offer-grid" id="portalFacts"></div>
+<div class="business-lines" id="portalOfferLines"></div>
+<div class="business-total" id="portalOfferTotals"></div>
+<div class="business-response-box" id="portalResponseBox">
+<h3>Entscheidung zum Angebot</h3><p class="business-muted" id="portalResponseHelp">Du kannst das Angebot annehmen, ablehnen oder vorab eine Rückfrage senden. Nach deiner Annahme prüft DJ Reifi die Buchung noch einmal und bestätigt sie anschließend endgültig.</p>
+<div class="field full"><label>Bemerkung oder Rückfrage</label><textarea id="portalResponseNote" placeholder="Optional"></textarea></div>
+<div class="business-actions"><button class="solid" id="portalAcceptButton" type="button">Angebot annehmen</button><button class="ghost danger" id="portalDeclineButton" type="button">Angebot ablehnen</button><a class="ghost" id="portalQuestionEmail" href="#">Rückfrage per E-Mail</a></div>
+<div class="business-save-state" id="portalResponseState"></div>
+</div>
+<div class="portal-document-actions"><button class="ghost" id="portalOfferPdfButton" type="button">Angebot als PDF</button><button class="ghost" id="portalLogoutButton" type="button">Portal verlassen</button></div>
+</div>
+<form class="business-card" hidden id="customerQuestionnaireForm">
+<div class="business-offer-head"><div><div class="eyebrow">Planung</div><h2>Veranstaltungsfragebogen</h2></div><span class="business-status sent" id="questionnaireStatusBadge">Entwurf</span></div>
+<p class="business-muted">Der Fragebogen kann jederzeit zwischengespeichert werden. Erst mit „Fragebogen verbindlich absenden“ wird er als vollständig markiert.</p>
+<div class="business-questionnaire-nav" id="questionnaireNav"></div>
+<div id="questionnaireSections"></div>
+<section class="business-question-section" data-q-section="appointments">
+<h3>Drei Vorschläge für ein persönliches Gespräch</h3><p class="business-muted">Bitte wähle drei völlig freie Termine in drei unterschiedlichen Kalenderwochen. DJ Reifi bestätigt später einen Termin oder bittet um neue Vorschläge.</p>
+<div class="appointment-grid">
+<div class="appointment-card"><h4>Vorschlag 1</h4><div class="field"><label>Datum und Uhrzeit *</label><input data-appointment="1" name="appointment1" type="datetime-local"></div><div class="field"><label>Gesprächsart</label><select name="appointmentType1"><option>Persönlich</option><option>Telefonisch</option><option>Videogespräch</option></select></div></div>
+<div class="appointment-card"><h4>Vorschlag 2</h4><div class="field"><label>Datum und Uhrzeit *</label><input data-appointment="2" name="appointment2" type="datetime-local"></div><div class="field"><label>Gesprächsart</label><select name="appointmentType2"><option>Persönlich</option><option>Telefonisch</option><option>Videogespräch</option></select></div></div>
+<div class="appointment-card"><h4>Vorschlag 3</h4><div class="field"><label>Datum und Uhrzeit *</label><input data-appointment="3" name="appointment3" type="datetime-local"></div><div class="field"><label>Gesprächsart</label><select name="appointmentType3"><option>Persönlich</option><option>Telefonisch</option><option>Videogespräch</option></select></div></div>
+</div>
+<div class="field full" style="margin-top:14px"><label>Hinweis zu den Terminen</label><textarea name="appointmentNote" placeholder="Optional"></textarea></div>
+</section>
+<div class="business-actions"><button class="ghost" id="questionnaireSaveDraft" type="button">Zwischenspeichern</button><button class="solid" id="questionnaireSubmitFinal" type="button">Fragebogen verbindlich absenden</button></div>
+<div class="portal-document-actions" style="margin-top:10px"><button class="ghost" id="questionnairePdfButton" type="button">Als PDF speichern</button><button class="ghost" id="questionnaireWordButton" type="button">Als Word-Datei speichern</button></div>
+<div class="business-save-state" id="questionnaireSaveState"></div>
+</form>
+</section>
+</div></section>
+
 <section class="page" data-page="musikwunsch"><div class="inner">
 <a class="back" data-go="home" href="#home">← Zur Startseite</a>
 <div class="page-top"><div><div class="eyebrow">Musikwünsche live</div><h1>Dein Song für den Abend.</h1></div><p>Gib den Veranstaltungscode ein und sende deinen Wunsch. Dein Vorname ist ausschließlich im geschützten Verwaltungsbereich für DJ Reifi sichtbar.</p></div>
@@ -690,8 +752,23 @@ body.package-lightbox-open{
 </article>
 </div>
 </section>
-<footer class="footer"><div class="footer-copy"><span>© 2026 DJ Reifi</span></div><nav aria-label="Social Media" class="social-nav"><span class="social-label">Social</span><a aria-label="DJ Reifi auf Instagram" class="social-link" href="https://www.instagram.com/reifi_/" rel="noopener noreferrer" target="_blank">Instagram</a><a aria-label="DJ Reifi auf Facebook" class="social-link" href="https://www.facebook.com/share/1DRhd9Qi4p/" rel="noopener noreferrer" target="_blank">Facebook</a><a aria-label="DJ Reifi auf YouTube" class="social-link" href="https://youtube.com/@reifiofficial?si=LQwbyRwgkTQ_yIa8" rel="noopener noreferrer" target="_blank">YouTube</a><a aria-label="DJ Reifi auf SoundCloud" class="social-link" href="https://soundcloud.com/reifi7" rel="noopener noreferrer" target="_blank">SoundCloud</a><a aria-label="DJ Reifi auf TikTok" class="social-link" href="https://www.tiktok.com/@reifi" rel="noopener noreferrer" target="_blank">TikTok</a></nav><nav aria-label="Rechtliches" class="footer-nav"><button class="footer-link" data-go="impressum">Impressum</button><button class="footer-link" data-go="datenschutz">Datenschutz</button><button class="footer-link" data-go="anfrage">Kontakt</button></nav></footer>
+<footer class="footer"><div class="footer-copy"><span>© 2026 DJ Reifi</span></div><nav aria-label="Social Media" class="social-nav"><span class="social-label">Social</span><a aria-label="DJ Reifi auf Instagram" class="social-link" href="https://www.instagram.com/reifi_/" rel="noopener noreferrer" target="_blank">Instagram</a><a aria-label="DJ Reifi auf Facebook" class="social-link" href="https://www.facebook.com/share/1DRhd9Qi4p/" rel="noopener noreferrer" target="_blank">Facebook</a><a aria-label="DJ Reifi auf YouTube" class="social-link" href="https://youtube.com/@reifiofficial?si=LQwbyRwgkTQ_yIa8" rel="noopener noreferrer" target="_blank">YouTube</a><a aria-label="DJ Reifi auf SoundCloud" class="social-link" href="https://soundcloud.com/reifi7" rel="noopener noreferrer" target="_blank">SoundCloud</a><a aria-label="DJ Reifi auf TikTok" class="social-link" href="https://www.tiktok.com/@reifi" rel="noopener noreferrer" target="_blank">TikTok</a></nav><nav aria-label="Rechtliches" class="footer-nav"><button class="footer-link" data-go="impressum">Impressum</button><button class="footer-link" data-go="datenschutz">Datenschutz</button><button class="footer-link" data-go="anfrage">Kontakt</button><button class="footer-link" data-go="kundenportal">Kundenportal</button><button class="footer-link" id="openBusinessAdmin" type="button">Verwaltung</button></nav></footer>
 </main></div>
+
+<div class="modal" id="businessAdminModal"><div class="modal-card business-admin-modal-card">
+<div class="modal-head"><h3>Angebote &amp; Aufträge</h3><button class="close" data-close="businessAdminModal">×</button></div>
+<div id="businessAdminLoginPanel">
+<div class="admin-login-card"><strong>Geschützter Verwaltungszugang</strong><div class="fields" style="margin-top:14px"><div class="field"><label>E-Mail-Adresse</label><input autocomplete="username" id="businessAdminEmail" type="email" value="marcelreifenstein@yahoo.com"></div><div class="field"><label>Passwort</label><input autocomplete="current-password" id="businessAdminPassword" type="password"></div></div><button class="solid" id="businessAdminLoginButton" style="margin-top:14px" type="button">Anmelden</button><div class="admin-status" id="businessAdminLoginState"></div></div>
+</div>
+<div hidden id="businessAdminPanel">
+<div class="business-admin-toolbar"><div><strong>Auftragsverwaltung aktiv</strong><br><small id="businessAdminUserLabel"></small></div><div class="business-actions" style="margin-top:0"><button class="ghost" id="newBusinessCaseButton" type="button">+ Vorgang anlegen</button><button class="ghost" id="cleanupHealthButton" type="button">Löschfristen prüfen</button><button class="ghost" id="businessAdminLogoutButton" type="button">Abmelden</button></div></div>
+<div class="business-admin-layout">
+<aside class="business-card"><div class="business-admin-filter"><div class="field"><label>Suche</label><input id="businessCaseSearch" placeholder="Name, Nummer, Ort"></div><div class="field"><label>Status</label><select id="businessCaseStatusFilter"><option value="">Alle</option><option value="new">Neue Anfrage</option><option value="draft">Entwurf</option><option value="sent">Versendet</option><option value="accepted">Kunde hat angenommen</option><option value="confirmed">Endgültig bestätigt</option><option value="declined">Abgelehnt</option></select></div></div><div class="business-case-list" id="businessCaseList"><div class="business-empty">Vorgänge werden geladen …</div></div></aside>
+<section class="business-card business-editor" id="businessCaseEditor"><div class="business-empty">Wähle links einen Vorgang aus oder lege einen neuen Vorgang an.</div></section>
+</div>
+</div>
+</div></div>
+
 <div class="modal" id="adminModal"><div class="modal-card admin-modal-card">
 <div class="modal-head"><h3>Musikwünsche – Verwaltung</h3><button class="close" data-close="adminModal">×</button></div>
 <div class="admin-login" id="adminLoginPanel">
@@ -851,7 +928,8 @@ import {
   where,
   orderBy,
   serverTimestamp,
-  Timestamp
+  Timestamp,
+  deleteField
 } from 'https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js';
 
 const firebaseConfig = {
@@ -1130,7 +1208,13 @@ inquiryForm.addEventListener('submit', async event => {
       headers: { Accept: 'application/json' }
     });
     if (response.ok) {
-      showFormStatus('success', 'Vielen Dank. Deine Anfrage wurde erfolgreich gesendet. Ich melde mich über den gewünschten Kontaktweg.');
+      try {
+        await createBusinessCaseFromInquiry(new FormData(inquiryForm));
+        showFormStatus('success', 'Vielen Dank. Deine Anfrage wurde erfolgreich gesendet und in der Auftragsverwaltung gespeichert. Ich melde mich über den gewünschten Kontaktweg.');
+      } catch (saveError) {
+        console.error('Auftragsverwaltung:', saveError);
+        showFormStatus('success', 'Deine Anfrage wurde per E-Mail gesendet. Die zusätzliche Speicherung in der Auftragsverwaltung war jedoch nicht möglich.');
+      }
       inquiryForm.reset();
       setInquiryKind('dj');
     } else {
@@ -2810,6 +2894,369 @@ if (initialReviewCode) {
   go('bewertung-abgeben');
   authReady.then(() => document.getElementById('checkReviewCode').click());
 }
+
+
+// ============================================================================
+// DJ Reifi – Angebots-, Kundenportal- und Fragebogensystem (MVP)
+// Vorgangsarten: ausschließlich DJ-Leistung und Technikmiete.
+// ============================================================================
+const BUSINESS_ADMIN_UID = ADMIN_UID;
+const BUSINESS_EMAIL = 'marcelreifenstein@yahoo.com';
+const BUSINESS_PORTAL_URL = `${location.origin}${location.pathname}#kundenportal`;
+const businessMoney = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
+const businessDate = new Intl.DateTimeFormat('de-DE', { dateStyle: 'medium' });
+const businessDateTime = new Intl.DateTimeFormat('de-DE', { dateStyle: 'medium', timeStyle: 'short' });
+let businessCases = [];
+let businessPortals = new Map();
+let selectedBusinessCaseId = '';
+let businessCasesUnsub = null;
+let businessPortalsUnsub = null;
+let activeCustomerPortal = null;
+let activeCustomerPortalKey = '';
+
+function businessNowIso(){ return new Date().toISOString(); }
+function businessPlain(value){
+  if (value === undefined || value === null) return '';
+  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') return value;
+  return JSON.parse(JSON.stringify(value));
+}
+function businessStatusLabel(status){
+  return ({new:'Neue Anfrage',draft:'Angebot in Arbeit',sent:'Angebot versendet',accepted:'Vom Kunden angenommen',confirmed:'Endgültig bestätigt',declined:'Abgelehnt',expired:'Zugang abgelaufen'})[status] || 'Entwurf';
+}
+function businessStatusClass(status){ return ['new','draft','sent','accepted','confirmed','declined','expired'].includes(status) ? status : 'draft'; }
+function businessTimestampMs(value){
+  if (!value) return 0;
+  if (typeof value.toMillis === 'function') return value.toMillis();
+  if (typeof value.seconds === 'number') return value.seconds * 1000;
+  const parsed = Date.parse(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+function businessFormatDate(value, includeTime=false){
+  const ms = businessTimestampMs(value);
+  if (!ms) return '–';
+  return includeTime ? businessDateTime.format(new Date(ms)) : businessDate.format(new Date(ms));
+}
+function businessNormalizeEmail(value){ return String(value || '').trim().toLowerCase(); }
+function businessNormalizeCode(value){ return String(value || '').toUpperCase().trim().replace(/[^A-Z0-9-]/g,'').slice(0,20); }
+function businessRandomCode(){
+  const alphabet='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const bytes=new Uint8Array(10); crypto.getRandomValues(bytes);
+  const raw=[...bytes].map(byte=>alphabet[byte%alphabet.length]).join('');
+  return `${raw.slice(0,4)}-${raw.slice(4,8)}-${raw.slice(8)}`;
+}
+async function businessPortalKey(email, code){
+  const data=new TextEncoder().encode(`${businessNormalizeEmail(email)}|${businessNormalizeCode(code)}`);
+  const hash=await crypto.subtle.digest('SHA-256', data);
+  return [...new Uint8Array(hash)].map(byte=>byte.toString(16).padStart(2,'0')).join('');
+}
+function businessAddDays(dateValue, days){
+  const date = dateValue ? new Date(dateValue) : new Date();
+  if (Number.isNaN(date.getTime())) return new Date(Date.now()+days*86400000);
+  date.setDate(date.getDate()+days); return date;
+}
+function businessEventAccessExpiry(eventDate){
+  if (!eventDate) return businessAddDays(new Date(),30);
+  const date = new Date(`${eventDate}T23:59:59`);
+  return businessAddDays(date,30);
+}
+function businessCaseNumber(prefix='ANF'){
+  const now=new Date();
+  return `${prefix}-${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}-${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}${String(now.getSeconds()).padStart(2,'0')}`;
+}
+function businessTimelineEntry(label, detail=''){
+  return { label, detail, at: businessNowIso() };
+}
+function businessDownload(blob, filename){
+  const url=URL.createObjectURL(blob); const link=document.createElement('a');
+  link.href=url; link.download=filename; document.body.appendChild(link); link.click(); link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+function businessWhatsAppNumber(value){
+  let number=String(value||'').replace(/\D/g,'');
+  if (number.startsWith('0')) number=`49${number.slice(1)}`;
+  return number;
+}
+function businessIsoWeek(value){
+  const date=new Date(value); if(Number.isNaN(date.getTime())) return '';
+  const target=new Date(Date.UTC(date.getFullYear(),date.getMonth(),date.getDate()));
+  const day=target.getUTCDay()||7; target.setUTCDate(target.getUTCDate()+4-day);
+  const yearStart=new Date(Date.UTC(target.getUTCFullYear(),0,1));
+  const week=Math.ceil((((target-yearStart)/86400000)+1)/7);
+  return `${target.getUTCFullYear()}-KW${String(week).padStart(2,'0')}`;
+}
+function businessSerializeForm(form){
+  const result={};
+  new FormData(form).forEach((value,key)=>{
+    if (key in result) result[key]=Array.isArray(result[key])?[...result[key],value]:[result[key],value];
+    else result[key]=value;
+  });
+  form.querySelectorAll('input[type="checkbox"]').forEach(input=>{
+    if (!input.name) return;
+    if (!input.checked && !(input.name in result)) result[input.name]=[];
+  });
+  return result;
+}
+function businessPopulateForm(form,data={}){
+  [...form.elements].forEach(element=>{
+    if (!element.name || !(element.name in data)) return;
+    const value=data[element.name];
+    if (element.type==='checkbox') element.checked=Array.isArray(value)?value.includes(element.value):Boolean(value===element.value||value===true||value==='on');
+    else if (element.type==='radio') element.checked=String(value)===element.value;
+    else element.value=value ?? '';
+  });
+}
+function businessQuestionnaireText(data,type){
+  const labels={
+    eventType:'Art der Veranstaltung',organizerName:'Veranstalter',organizerPhone:'Telefon',venueContact:'Ansprechpartner der Location',eventDate:'Veranstaltungsdatum',eventLocation:'Veranstaltungsort',guestCount:'Gästezahl',ageGroups:'Altersklassen',dressCode:'Dresscode',musicWanted:'Gewünschte Musikrichtungen',musicBlocked:'Nicht gewünschte Musikrichtungen',mustPlay:'Pflichtlieder',doNotPlay:'Ausgeschlossene Lieder',djPlacement:'DJ-Stellfläche',meal:'Essen / Musik',water:'Wasser für DJ',advertising:'Visitenkarten / Werbung',guestWishes:'Musikwünsche der Gäste',smokeDetectors:'Rauchmelder',fogAllowed:'Nebelmaschine möglich',buildTime:'Aufbauzeit',eventTime:'Veranstaltungszeit',tearDownTime:'Abbauzeit',rentalStart:'Mietbeginn',rentalEnd:'Mietende',accessRoute:'Zugang / Treppen / Fahrstuhl',parking:'Park- und Zufahrt',power:'Stromversorgung',placement:'Aufstellfläche',playback:'Zuspielung',rentalUse:'Einsatzzweck',healthConditions:'Sicherheitsrelevante Erkrankungen',healthOther:'Weitere sicherheitsrelevante Information',appointment1:'Terminvorschlag 1',appointment2:'Terminvorschlag 2',appointment3:'Terminvorschlag 3',appointmentNote:'Hinweis zu den Terminen'};
+  const lines=[type==='rental'?'TECHNIKMIETE – FRAGEBOGEN':'DJ-LEISTUNG – FRAGEBOGEN',''];
+  Object.entries(data||{}).forEach(([key,value])=>{
+    if (key.startsWith('appointmentType')) return;
+    const shown=Array.isArray(value)?value.join(', '):String(value||'').trim();
+    if (!shown) return;
+    lines.push(`${labels[key]||key}: ${shown}`);
+  });
+  [1,2,3].forEach(i=>{
+    if(data?.[`appointment${i}`]) lines.push(`Gespräch ${i}: ${data[`appointment${i}`]} · ${data[`appointmentType${i}`]||''}`);
+  });
+  return lines.join('\n');
+}
+
+async function createBusinessCaseFromInquiry(formData){
+  await authReady;
+  const id=crypto.randomUUID();
+  const kind=String(formData.get('Art')||'DJ-Dienstleistung').toLowerCase().includes('technik')?'rental':'dj';
+  const customer={name:String(formData.get('Name')||'').trim(),email:businessNormalizeEmail(formData.get('email')),phone:String(formData.get('Telefon')||'').trim(),replyMethod:String(formData.get('Rueckmeldung')||'E-Mail')};
+  const inquiry={}; formData.forEach((value,key)=>{ if(!['_gotcha'].includes(key)) inquiry[key]=String(value); });
+  const event={date:String(formData.get('Datum')||''),location:String(formData.get('Ort')||''),eventType:String(formData.get('Veranstaltungsart')||''),guests:String(formData.get('Gaeste')||''),time:String(formData.get(kind==='dj'?'Zeit':'Mietzeit')||'')};
+  const payload={caseNumber:businessCaseNumber('ANF'),type:kind,status:'new',customer,event,inquiry,timeline:[businessTimelineEntry('Anfrage über die Website eingegangen')],createdAt:serverTimestamp(),updatedAt:serverTimestamp()};
+  await setDoc(doc(db,'businessCases',id),payload);
+  return id;
+}
+
+// Customer portal rendering and actions
+const customerPortalLoginForm=document.getElementById('customerPortalLoginForm');
+const customerPortalLoginArea=document.getElementById('customerPortalLoginArea');
+const customerPortalPanel=document.getElementById('customerPortalPanel');
+const customerPortalLoginState=document.getElementById('customerPortalLoginState');
+const customerQuestionnaireForm=document.getElementById('customerQuestionnaireForm');
+function setCustomerPortalState(type,text){ customerPortalLoginState.className=`business-save-state ${type||''}`; customerPortalLoginState.textContent=text; }
+function customerPortalStatus(portal){
+  const response=portal.customerResponse?.status;
+  if (portal.status==='confirmed') return 'confirmed';
+  if (response==='accepted') return 'accepted';
+  if (response==='declined') return 'declined';
+  return portal.status||'sent';
+}
+function renderCustomerOffer(portal){
+  const status=customerPortalStatus(portal); const offer=portal.offer||{}; const event=portal.event||{};
+  document.getElementById('portalCaseNumber').textContent=portal.caseNumber||'Vorgang';
+  document.getElementById('portalOfferTitle').textContent=portal.type==='rental'?'Angebot Technikmiete':'Angebot DJ-Leistung';
+  const badge=document.getElementById('portalStatusBadge'); badge.className=`business-status ${businessStatusClass(status)}`; badge.textContent=businessStatusLabel(status);
+  document.getElementById('portalFacts').innerHTML=[['Kunde',portal.customerName],['Veranstaltung',event.eventType|| (portal.type==='rental'?'Technikmiete':'DJ-Leistung')],['Datum',event.date?businessFormatDate(`${event.date}T12:00:00`):'–'],['Ort',event.location||'–'],['Angebotsnummer',offer.number||'–'],['Angebot gültig bis',offer.validUntil?businessFormatDate(`${offer.validUntil}T12:00:00`):'–']].map(([label,value])=>`<div class="business-fact"><span>${esc(label)}</span><strong>${esc(value||'–')}</strong></div>`).join('');
+  const lines=Array.isArray(offer.lines)?offer.lines:[];
+  document.getElementById('portalOfferLines').innerHTML=`<div class="business-line business-line-head"><span>Leistung</span><span>Menge</span><span>Einzelpreis</span><span>Gesamt</span></div>`+lines.map(line=>`<div class="business-line"><span>${esc(line.description)}</span><span>${esc(line.quantity)}</span><span>${businessMoney.format(Number(line.price)||0)}</span><strong>${businessMoney.format((Number(line.quantity)||0)*(Number(line.price)||0))}</strong></div>`).join('');
+  document.getElementById('portalOfferTotals').innerHTML=`<div><span>Leistungen</span><strong>${businessMoney.format(Number(offer.subtotal)||0)}</strong></div>${Number(offer.travelCost)>0?`<div><span>Fahrtkosten</span><strong>${businessMoney.format(Number(offer.travelCost)||0)}</strong></div>`:''}<div class="grand"><span>Gesamtpreis</span><strong>${businessMoney.format(Number(offer.total)||0)}</strong></div>${Number(offer.deposit)>0?`<div><span>Kaution (rückzahlbar)</span><strong>${businessMoney.format(Number(offer.deposit)||0)}</strong></div>`:''}${offer.notes?`<div style="display:block"><span>Individuelle Hinweise</span><p class="business-muted">${esc(offer.notes)}</p></div>`:''}`;
+  document.getElementById('portalResponseNote').value=portal.customerResponse?.note||'';
+  const locked=['accepted','declined'].includes(portal.customerResponse?.status)||portal.status==='confirmed';
+  document.getElementById('portalAcceptButton').disabled=locked;
+  document.getElementById('portalDeclineButton').disabled=locked;
+  document.getElementById('portalResponseHelp').textContent=portal.status==='confirmed'?'DJ Reifi hat die Buchung endgültig bestätigt.':portal.customerResponse?.status==='accepted'?'Du hast das Angebot angenommen. Die endgültige Bestätigung durch DJ Reifi steht noch aus.':portal.customerResponse?.status==='declined'?'Du hast das Angebot abgelehnt.':'Du kannst das Angebot annehmen, ablehnen oder vorab eine Rückfrage senden. Nach deiner Annahme prüft DJ Reifi die Buchung noch einmal und bestätigt sie anschließend endgültig.';
+  document.getElementById('portalQuestionEmail').href=`mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(`Rückfrage zu ${offer.number||portal.caseNumber}`)}&body=${encodeURIComponent(`Hallo Marcel,\n\nich habe eine Rückfrage zu meinem Angebot ${offer.number||portal.caseNumber}:\n\n`)}`;
+  const showQuestionnaire=portal.customerResponse?.status==='accepted'||portal.status==='confirmed';
+  customerQuestionnaireForm.hidden=!showQuestionnaire;
+  if(showQuestionnaire) renderQuestionnaire(portal);
+}
+function questionnaireSectionsFor(type){
+  const commonStart=`<section class="business-question-section active" data-q-section="event"><h3>Veranstaltung und Ansprechpartner</h3><div class="fields"><div class="field"><label>Art der Veranstaltung *</label><input name="eventType" required></div><div class="field"><label>Veranstaltungsdatum *</label><input name="eventDate" required type="date"></div><div class="field full"><label>Veranstaltungsort / vollständige Adresse *</label><input name="eventLocation" required></div><div class="field"><label>Veranstalter / Ansprechpartner *</label><input name="organizerName" required></div><div class="field"><label>Telefonnummer am Veranstaltungstag *</label><input name="organizerPhone" required></div><div class="field"><label>Gästezahl</label><input name="guestCount"></div><div class="field"><label>Ansprechpartner der Location</label><input name="venueContact"></div></div></section>`;
+  const healthDj=`<section class="business-question-section" data-q-section="safety"><h3>Sicherheit und gesundheitliche Rücksichtnahme</h3><div class="business-health-note"><strong>Warum wird das gefragt?</strong><br>Licht-, Nebel- und Tontechnik kann bei bestimmten gesundheitlichen Einschränkungen besondere Schutzmaßnahmen erfordern. Die Angaben werden ausschließlich zur sicheren technischen Planung dieser Veranstaltung verwendet und 30 Tage nach der Veranstaltung gelöscht. Bitte keine Namen oder ausführlichen Diagnosen einzelner Gäste eintragen.</div><div class="business-check-grid"><label class="business-check-option"><input name="healthConditions" type="checkbox" value="Epilepsie oder erhöhte Lichtempfindlichkeit"><span>Epilepsie oder erhöhte Lichtempfindlichkeit</span></label><label class="business-check-option"><input name="healthConditions" type="checkbox" value="Hörschäden oder starke Lärmempfindlichkeit"><span>Hörschäden oder starke Lärmempfindlichkeit</span></label><label class="business-check-option"><input name="healthConditions" type="checkbox" value="Lungenerkrankung oder Empfindlichkeit gegenüber Nebel"><span>Lungenerkrankung oder Empfindlichkeit gegenüber Nebel</span></label><label class="business-check-option"><input name="healthConditions" type="checkbox" value="Augenerkrankung oder Lichtempfindlichkeit"><span>Augenerkrankung oder Lichtempfindlichkeit</span></label><label class="business-check-option"><input name="healthConditions" type="checkbox" value="Nein oder nicht bekannt"><span>Nein beziehungsweise nicht bekannt</span></label></div><div class="field full" style="margin-top:12px"><label>Andere sicherheitsrelevante Einschränkung</label><textarea name="healthOther" placeholder="Keine Namen oder ausführlichen Diagnosen"></textarea></div><label class="check" style="margin-top:14px"><input name="healthConsent" required type="checkbox" value="bestaetigt"><span>Ich bestätige, dass ich keine Namen oder identifizierenden Gesundheitsangaben einzelner Gäste übermittle und dass die Angaben ausschließlich zur sicheren Durchführung verwendet werden dürfen.</span></label></section>`;
+  if(type==='rental') return commonStart+`<section class="business-question-section" data-q-section="technical"><h3>Technikmiete und Einsatzort</h3><div class="fields"><div class="field"><label>Mietbeginn *</label><input name="rentalStart" required type="datetime-local"></div><div class="field"><label>Mietende *</label><input name="rentalEnd" required type="datetime-local"></div><div class="field full"><label>Geplanter Einsatzzweck</label><textarea name="rentalUse" placeholder="Sprache, Hintergrundmusik, Tanzfläche oder andere Nutzung"></textarea></div><div class="field full"><label>Gewünschte Miettechnik</label><div class="business-check-grid"><label class="business-check-option"><input name="rentalEquipment" type="checkbox" value="JBL EON 715"><span>JBL EON 715</span></label><label class="business-check-option"><input name="rentalEquipment" type="checkbox" value="JBL EON 718S"><span>JBL EON 718S</span></label><label class="business-check-option"><input name="rentalEquipment" type="checkbox" value="Sennheiser XSW 1-825 E Funkmikrofon"><span>Sennheiser XSW 1-825 E Funkmikrofon</span></label></div></div><div class="field full"><label>Zuspielung</label><select name="playback"><option>XLR</option><option>Bluetooth über Android</option><option>XLR und Bluetooth über Android</option><option>iOS-Gerät – Einschränkungen bekannt</option><option>Noch offen</option></select><small class="field-help">Beide EON 715 können gemeinsam mit den EON 718S per XLR angesteuert werden. Bei kompatiblen Android-Geräten ist zusätzlich eine parallele Bluetooth-Wiedergabe möglich. Bei iOS-Geräten bestehen Einschränkungen.</small></div><div class="field"><label>Stromversorgung</label><textarea name="power"></textarea></div><div class="field"><label>Aufstellfläche</label><textarea name="placement"></textarea></div><div class="field"><label>Zugang, Treppen oder Fahrstuhl</label><textarea name="accessRoute"></textarea></div><div class="field"><label>Park- und Zufahrtsmöglichkeit</label><textarea name="parking"></textarea></div></div><div class="business-health-note"><strong>Bedienung:</strong> Die Technik wird ausschließlich durch den Veranstalter bedient. Die Einweisung erfolgt durch DJ Reifi. Die Verkabelung darf nicht verändert werden. Der Veranstalter ist während der Mietdauer der Ansprechpartner.</div><div class="business-check-grid"><label class="business-check-option"><input name="rentalRules" required type="checkbox" value="Technik wird nur durch den Veranstalter bedient"><span>Die Technik wird nur durch den Veranstalter bedient.</span></label><label class="business-check-option"><input name="rentalRules" required type="checkbox" value="Einweisung erfolgt durch DJ Reifi"><span>Die Einweisung erfolgt durch DJ Reifi.</span></label><label class="business-check-option"><input name="rentalRules" required type="checkbox" value="Verkabelung wird nicht verändert"><span>Die Verkabelung wird nicht verändert.</span></label><label class="business-check-option"><input name="rentalRules" required type="checkbox" value="Veranstalter ist Ansprechpartner"><span>Der Veranstalter ist der Ansprechpartner.</span></label><label class="business-check-option"><input name="rentalRules" required type="checkbox" value="Einsatz indoor oder vollständig witterungsgeschützt"><span>Der Einsatz erfolgt indoor oder vollständig und zuverlässig witterungsgeschützt.</span></label></div></section><section class="business-question-section" data-q-section="safety"><h3>Sicherheitsrelevante Angaben</h3><div class="business-health-note">Bei leistungsstarker Beschallung muss bekannt sein, ob wegen Hörschäden oder starker Lärmempfindlichkeit eine besondere Lautstärkebegrenzung erforderlich ist. Bitte keine Namen oder Diagnosen einzelner Gäste eintragen. Die Angaben werden 30 Tage nach der Veranstaltung gelöscht.</div><div class="business-check-grid"><label class="business-check-option"><input name="healthConditions" type="checkbox" value="Hörschäden oder starke Lärmempfindlichkeit"><span>Hörschäden oder starke Lärmempfindlichkeit</span></label><label class="business-check-option"><input name="healthConditions" type="checkbox" value="Nein oder nicht bekannt"><span>Nein beziehungsweise nicht bekannt</span></label></div><div class="field full" style="margin-top:12px"><label>Weitere sicherheitsrelevante Information</label><textarea name="healthOther"></textarea></div><label class="check" style="margin-top:14px"><input name="healthConsent" required type="checkbox" value="bestaetigt"><span>Ich bestätige, dass ich keine Namen oder identifizierenden Gesundheitsangaben einzelner Gäste übermittle.</span></label></section>`;
+  return commonStart+`<section class="business-question-section" data-q-section="schedule"><h3>Ablauf und Organisation</h3><div class="fields"><div class="field"><label>Aufbauzeit</label><input name="buildTime"></div><div class="field"><label>Veranstaltungszeit</label><input name="eventTime"></div><div class="field"><label>Abbauzeit</label><input name="tearDownTime"></div><div class="field"><label>Altersklassen</label><input name="ageGroups"></div><div class="field"><label>Dresscode</label><input name="dressCode"></div><div class="field"><label>DJ-Stellfläche</label><input name="djPlacement"></div><div class="field"><label>Wird auf der Feier gegessen?</label><input name="meal"></div><div class="field"><label>Wasser für DJ verfügbar?</label><select name="water"><option>Ja</option><option>Nein</option></select></div><div class="field"><label>Visitenkarten / Werbung erlaubt?</label><select name="advertising"><option>Ja</option><option>Nein</option></select></div><div class="field"><label>Musikwünsche der Gäste erlaubt?</label><select name="guestWishes"><option>Ja</option><option>Nein</option></select></div><div class="field"><label>Rauchmelder im Veranstaltungsbereich?</label><select name="smokeDetectors"><option>Ja</option><option>Nein</option><option>Nicht bekannt</option></select></div><div class="field"><label>Nebelmaschine möglich?</label><select name="fogAllowed"><option>Ja</option><option>Nein</option><option>Muss mit Location geklärt werden</option></select></div></div></section><section class="business-question-section" data-q-section="music"><h3>Musikplanung</h3><div class="fields"><div class="field full"><label>Musikrichtungen, die überwiegend vorkommen sollen</label><textarea name="musicWanted"></textarea></div><div class="field full"><label>Musikrichtungen, die nicht vorkommen dürfen</label><textarea name="musicBlocked"></textarea></div><div class="field full"><label>Lieder, die ein absolutes Muss sind</label><textarea name="mustPlay"></textarea></div><div class="field full"><label>Lieder, die gar nicht vorkommen dürfen</label><textarea name="doNotPlay"></textarea></div></div></section>`+healthDj;
+}
+function renderQuestionnaire(portal){
+  const sections=document.getElementById('questionnaireSections'); sections.innerHTML=questionnaireSectionsFor(portal.type);
+  const nav=document.getElementById('questionnaireNav');
+  const sectionEls=[...customerQuestionnaireForm.querySelectorAll('.business-question-section')];
+  const labels={event:'Veranstaltung',schedule:'Ablauf',music:'Musik',technical:'Technik',safety:'Sicherheit',appointments:'Gesprächstermine'};
+  nav.innerHTML=sectionEls.map((section,index)=>`<button class="business-step-button ${index===0?'active':''}" data-q-target="${section.dataset.qSection}" type="button">${labels[section.dataset.qSection]||section.dataset.qSection}</button>`).join('');
+  nav.querySelectorAll('[data-q-target]').forEach(button=>button.addEventListener('click',()=>{
+    sectionEls.forEach(section=>section.classList.toggle('active',section.dataset.qSection===button.dataset.qTarget));
+    nav.querySelectorAll('button').forEach(item=>item.classList.toggle('active',item===button));
+  }));
+  businessPopulateForm(customerQuestionnaireForm,portal.questionnaire?.data||{});
+  const initial={eventType:portal.event?.eventType||'',eventDate:portal.event?.date||'',eventLocation:portal.event?.location||'',organizerName:portal.customerName||'',organizerPhone:portal.customerPhone||''};
+  [...customerQuestionnaireForm.elements].forEach(el=>{ if(el.name&&initial[el.name]&&!el.value) el.value=initial[el.name]; });
+  const badge=document.getElementById('questionnaireStatusBadge'); const final=portal.questionnaire?.status==='submitted'; badge.textContent=final?'Abgesendet':'Entwurf'; badge.className=`business-status ${final?'confirmed':'sent'}`;
+}
+customerPortalLoginForm?.addEventListener('submit',async event=>{
+  event.preventDefault(); setCustomerPortalState('','Zugang wird geprüft …');
+  try{
+    await authReady;
+    const email=businessNormalizeEmail(document.getElementById('customerPortalEmail').value);
+    const code=businessNormalizeCode(document.getElementById('customerPortalCode').value);
+    document.getElementById('customerPortalCode').value=code;
+    if(!email||!code) throw new Error('Bitte E-Mail-Adresse und Angebotscode vollständig eingeben.');
+    const key=await businessPortalKey(email,code); const snap=await getDoc(doc(db,'clientPortals',key));
+    if(!snap.exists()) throw new Error('Die Kombination aus E-Mail-Adresse und Angebotscode wurde nicht gefunden.');
+    const portal={id:snap.id,...snap.data()};
+    if(portal.customerEmailNorm!==email) throw new Error('Die E-Mail-Adresse stimmt nicht mit dem Angebot überein.');
+    if(Date.now()>businessTimestampMs(portal.accessExpiresAt)) throw new Error('Dieser Zugang ist abgelaufen. Bitte wende dich an DJ Reifi.');
+    activeCustomerPortal=portal; activeCustomerPortalKey=key; customerPortalLoginArea.hidden=true; customerPortalPanel.hidden=false; renderCustomerOffer(portal); setCustomerPortalState('success','');
+  }catch(error){ console.error(error); setCustomerPortalState('error',error.message||'Der Zugang konnte nicht geöffnet werden.'); }
+});
+async function refreshActivePortal(){
+  if(!activeCustomerPortalKey)return;
+  const snap=await getDoc(doc(db,'clientPortals',activeCustomerPortalKey));
+  if(snap.exists()){activeCustomerPortal={id:snap.id,...snap.data()};renderCustomerOffer(activeCustomerPortal);}
+}
+async function saveCustomerResponse(status){
+  if(!activeCustomerPortalKey||!activeCustomerPortal)return;
+  const state=document.getElementById('portalResponseState'); state.className='business-save-state'; state.textContent='Entscheidung wird gespeichert …';
+  try{
+    const note=document.getElementById('portalResponseNote').value.trim();
+    await updateDoc(doc(db,'clientPortals',activeCustomerPortalKey),{customerResponse:{status,note,at:businessNowIso()},status:status==='accepted'?'accepted':'declined',updatedAt:serverTimestamp()});
+    state.className='business-save-state success'; state.textContent=status==='accepted'?'Das Angebot wurde angenommen. DJ Reifi bestätigt die Buchung noch einmal persönlich. Der Fragebogen ist jetzt freigeschaltet.':'Das Angebot wurde abgelehnt.';
+    await refreshActivePortal();
+  }catch(error){console.error(error);state.className='business-save-state error';state.textContent='Die Entscheidung konnte nicht gespeichert werden.';}
+}
+document.getElementById('portalAcceptButton')?.addEventListener('click',()=>saveCustomerResponse('accepted'));
+document.getElementById('portalDeclineButton')?.addEventListener('click',()=>{if(confirm('Möchtest du das Angebot wirklich ablehnen?'))saveCustomerResponse('declined');});
+document.getElementById('portalLogoutButton')?.addEventListener('click',()=>{activeCustomerPortal=null;activeCustomerPortalKey='';customerPortalPanel.hidden=true;customerPortalLoginArea.hidden=false;customerPortalLoginForm.reset();});
+function validateAppointments(data){
+  const dates=[data.appointment1,data.appointment2,data.appointment3];
+  if(dates.some(value=>!value)) throw new Error('Bitte trage alle drei Gesprächstermine ein.');
+  if(dates.some(value=>new Date(value).getTime()<=Date.now())) throw new Error('Die Gesprächstermine müssen in der Zukunft liegen.');
+  const weeks=dates.map(businessIsoWeek); if(new Set(weeks).size!==3) throw new Error('Die drei Termine müssen in drei unterschiedlichen Kalenderwochen liegen.');
+}
+async function saveQuestionnaire(finalSubmit=false){
+  if(!activeCustomerPortalKey||!activeCustomerPortal)return;
+  const state=document.getElementById('questionnaireSaveState'); state.className='business-save-state'; state.textContent='Fragebogen wird gespeichert …';
+  try{
+    const data=businessSerializeForm(customerQuestionnaireForm);
+    if(finalSubmit){
+      const required=[...customerQuestionnaireForm.querySelectorAll('[required]')];
+      const invalid=required.find(el=>el.type==='checkbox'?!el.checked:!String(el.value||'').trim());
+      if(invalid){invalid.focus();throw new Error('Bitte fülle alle Pflichtfelder aus und bestätige die erforderlichen Hinweise.');}
+      validateAppointments(data);
+    }
+    const eventDate=data.eventDate||activeCustomerPortal.event?.date;
+    const healthDeleteAt=businessEventAccessExpiry(eventDate);
+    await updateDoc(doc(db,'clientPortals',activeCustomerPortalKey),{questionnaire:{status:finalSubmit?'submitted':'draft',data,savedAt:businessNowIso(),submittedAt:finalSubmit?businessNowIso():(activeCustomerPortal.questionnaire?.submittedAt||'')},appointments:{status:finalSubmit?'submitted':'draft',items:[1,2,3].map(i=>({date:data[`appointment${i}`]||'',type:data[`appointmentType${i}`]||''})),note:data.appointmentNote||''},healthDeleteAt:Timestamp.fromDate(healthDeleteAt),updatedAt:serverTimestamp()});
+    state.className='business-save-state success'; state.textContent=finalSubmit?'Der Fragebogen und die drei Terminvorschläge wurden verbindlich abgesendet.':'Entwurf gespeichert.';
+    await refreshActivePortal();
+  }catch(error){console.error(error);state.className='business-save-state error';state.textContent=error.message||'Der Fragebogen konnte nicht gespeichert werden.';}
+}
+document.getElementById('questionnaireSaveDraft')?.addEventListener('click',()=>saveQuestionnaire(false));
+document.getElementById('questionnaireSubmitFinal')?.addEventListener('click',()=>saveQuestionnaire(true));
+
+function ensureJsPdf(){
+  const api=window.jspdf?.jsPDF; if(!api) throw new Error('Die PDF-Bibliothek konnte nicht geladen werden.'); return api;
+}
+function offerPdfDocument(portal){
+  const JsPDF=ensureJsPdf(); const pdf=new JsPDF({unit:'mm',format:'a4'}); const offer=portal.offer||{}; const event=portal.event||{}; let y=20;
+  pdf.setFont('helvetica','bold');pdf.setFontSize(20);pdf.text('DJ REIFI',20,y);y+=10;pdf.setFontSize(15);pdf.text(portal.type==='rental'?'ANGEBOT TECHNIKMIETE':'ANGEBOT DJ-LEISTUNG',20,y);y+=10;pdf.setFont('helvetica','normal');pdf.setFontSize(10);
+  const facts=[`Angebotsnummer: ${offer.number||portal.caseNumber}`,`Kunde: ${portal.customerName||''}`,`Veranstaltung: ${event.eventType||''}`,`Datum: ${event.date||''}`,`Ort: ${event.location||''}`,`Gültig bis: ${offer.validUntil||''}`]; facts.forEach(line=>{pdf.text(line,20,y);y+=6;}); y+=4;
+  pdf.setFont('helvetica','bold');pdf.text('Leistungspositionen',20,y);y+=7;pdf.setFont('helvetica','normal');
+  (offer.lines||[]).forEach(line=>{const total=(Number(line.quantity)||0)*(Number(line.price)||0);const desc=pdf.splitTextToSize(`${line.quantity} × ${line.description}`,125);pdf.text(desc,20,y);pdf.text(businessMoney.format(total),190,y,{align:'right'});y+=Math.max(6,desc.length*5);if(y>255){pdf.addPage();y=20;}});
+  if(Number(offer.travelCost)>0){pdf.text(`Fahrtkosten (${offer.travelKm||0} km × ${businessMoney.format(offer.travelRate||0.9)})`,20,y);pdf.text(businessMoney.format(offer.travelCost),190,y,{align:'right'});y+=7;}
+  pdf.setDrawColor(80);pdf.line(120,y,190,y);y+=7;pdf.setFont('helvetica','bold');pdf.setFontSize(12);pdf.text('Gesamtpreis',120,y);pdf.text(businessMoney.format(Number(offer.total)||0),190,y,{align:'right'});y+=7;
+  if(Number(offer.deposit)>0){pdf.setFontSize(10);pdf.setFont('helvetica','normal');pdf.text(`Kaution (rückzahlbar): ${businessMoney.format(Number(offer.deposit)||0)}`,120,y);y+=7;}
+  if(offer.notes){pdf.setFont('helvetica','bold');pdf.text('Individuelle Hinweise',20,y);y+=6;pdf.setFont('helvetica','normal');const notes=pdf.splitTextToSize(offer.notes,170);pdf.text(notes,20,y);y+=notes.length*5+5;}
+  if(y>235){pdf.addPage();y=20;} pdf.setFont('helvetica','bold');pdf.text('Kundenportal',20,y);y+=7;pdf.setFont('helvetica','normal');pdf.text(`Link: ${BUSINESS_PORTAL_URL}`,20,y);y+=6;pdf.setFont('courier','bold');pdf.setFontSize(13);pdf.text(`Code: ${offer.code||''}`,20,y);y+=8;pdf.setFont('helvetica','normal');pdf.setFontSize(9);pdf.text('Der Code ist ab Versand zunächst 30 Tage gültig. Das Angebot wird erst nach der persönlichen Bestätigung durch DJ Reifi endgültig gebucht.',20,y,{maxWidth:170});
+  pdf.setFontSize(8);pdf.text(`DJ Reifi · Marcel Reifenstein · ${BUSINESS_EMAIL}`,20,287); return pdf;
+}
+function questionnairePdfDocument(portal,data){
+  const JsPDF=ensureJsPdf(); const pdf=new JsPDF({unit:'mm',format:'a4'}); let y=20;pdf.setFont('helvetica','bold');pdf.setFontSize(18);pdf.text(portal.type==='rental'?'TECHNIKMIETE – FRAGEBOGEN':'DJ-LEISTUNG – FRAGEBOGEN',20,y);y+=9;pdf.setFontSize(10);pdf.setFont('helvetica','normal');pdf.text(`Vorgang: ${portal.caseNumber||''}`,20,y);y+=6;pdf.text(`Kunde: ${portal.customerName||''}`,20,y);y+=10;
+  const lines=businessQuestionnaireText(data,portal.type).split('\n').slice(2);lines.forEach(line=>{const wrapped=pdf.splitTextToSize(line,170);if(y+wrapped.length*5>280){pdf.addPage();y=20;}pdf.text(wrapped,20,y);y+=wrapped.length*5+2;}); return pdf;
+}
+document.getElementById('portalOfferPdfButton')?.addEventListener('click',()=>{try{const pdf=offerPdfDocument(activeCustomerPortal);pdf.save(`${activeCustomerPortal.offer?.number||activeCustomerPortal.caseNumber}-Angebot.pdf`);}catch(e){toast(e.message);}});
+document.getElementById('questionnairePdfButton')?.addEventListener('click',()=>{try{const data=businessSerializeForm(customerQuestionnaireForm);const pdf=questionnairePdfDocument(activeCustomerPortal,data);pdf.save(`${activeCustomerPortal.caseNumber}-Fragebogen.pdf`);}catch(e){toast(e.message);}});
+document.getElementById('questionnaireWordButton')?.addEventListener('click',()=>{
+  const data=businessSerializeForm(customerQuestionnaireForm);const text=businessQuestionnaireText(data,activeCustomerPortal.type).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>');
+  const htmlDoc=`<!doctype html><html><head><meta charset="utf-8"><title>Fragebogen</title><style>body{font-family:Arial,sans-serif;line-height:1.55;margin:40px}h1{font-size:22px}</style></head><body><h1>DJ Reifi – Veranstaltungsfragebogen</h1><p>${text}</p></body></html>`;
+  businessDownload(new Blob(['\ufeff',htmlDoc],{type:'application/msword'}),`${activeCustomerPortal.caseNumber}-Fragebogen.doc`);
+});
+
+// Admin area
+const businessAdminModal=document.getElementById('businessAdminModal');
+document.getElementById('openBusinessAdmin')?.addEventListener('click',()=>businessAdminModal.classList.add('open'));
+document.getElementById('businessAdminLoginButton')?.addEventListener('click',async()=>{
+  const state=document.getElementById('businessAdminLoginState');state.textContent='Anmeldung läuft …';
+  try{await signInWithEmailAndPassword(auth,document.getElementById('businessAdminEmail').value.trim(),document.getElementById('businessAdminPassword').value);state.textContent='';}
+  catch(error){console.error(error);state.textContent='Anmeldung fehlgeschlagen. E-Mail-Adresse und Passwort prüfen.';}
+});
+document.getElementById('businessAdminLogoutButton')?.addEventListener('click',()=>signOut(auth));
+function startBusinessAdmin(){
+  if(businessCasesUnsub)return;
+  businessCasesUnsub=onSnapshot(query(collection(db,'businessCases'),orderBy('updatedAt','desc')),snapshot=>{businessCases=snapshot.docs.map(item=>({id:item.id,...item.data()}));renderBusinessCaseList();if(selectedBusinessCaseId)renderBusinessEditor();},error=>{console.error(error);document.getElementById('businessCaseList').innerHTML='<div class="business-empty">Die Vorgänge konnten nicht geladen werden. Prüfe die Firestore-Regeln.</div>';});
+  businessPortalsUnsub=onSnapshot(collection(db,'clientPortals'),snapshot=>{businessPortals=new Map(snapshot.docs.map(item=>[item.data().caseId,{id:item.id,...item.data()}]));renderBusinessCaseList();if(selectedBusinessCaseId)renderBusinessEditor();},error=>console.error('Kundenportale:',error));
+}
+function stopBusinessAdmin(){businessCasesUnsub?.();businessPortalsUnsub?.();businessCasesUnsub=null;businessPortalsUnsub=null;businessCases=[];businessPortals.clear();selectedBusinessCaseId='';document.getElementById('businessCaseList').innerHTML='<div class="business-empty">Bitte anmelden.</div>';document.getElementById('businessCaseEditor').innerHTML='<div class="business-empty">Bitte anmelden.</div>';}
+onAuthStateChanged(auth,user=>{
+  const isAdmin=user?.uid===BUSINESS_ADMIN_UID;document.getElementById('businessAdminLoginPanel').hidden=isAdmin;document.getElementById('businessAdminPanel').hidden=!isAdmin;if(isAdmin){document.getElementById('businessAdminUserLabel').textContent=user.email||'Administrator';startBusinessAdmin();}else stopBusinessAdmin();
+});
+function effectiveCaseStatus(item){return businessPortals.get(item.id)?.status||item.status||'new';}
+function renderBusinessCaseList(){
+  const search=document.getElementById('businessCaseSearch')?.value.trim().toLowerCase()||'';const filter=document.getElementById('businessCaseStatusFilter')?.value||'';
+  const filtered=businessCases.filter(item=>{const status=effectiveCaseStatus(item);const text=[item.caseNumber,item.customer?.name,item.customer?.email,item.event?.location,item.event?.date].join(' ').toLowerCase();return(!search||text.includes(search))&&(!filter||status===filter);});
+  document.getElementById('businessCaseList').innerHTML=filtered.length?filtered.map(item=>{const status=effectiveCaseStatus(item);return`<article class="business-case-card ${item.id===selectedBusinessCaseId?'active':''}" data-business-case="${item.id}"><div class="business-case-card-head"><div><strong>${esc(item.caseNumber||'Vorgang')}</strong><small>${esc(item.customer?.name||'Ohne Namen')} · ${esc(item.type==='rental'?'Technikmiete':'DJ-Leistung')}</small></div><span class="business-status ${businessStatusClass(status)}">${businessStatusLabel(status)}</span></div><small>${esc(item.event?.date||'Datum offen')} · ${esc(item.event?.location||'Ort offen')}</small></article>`;}).join(''):'<div class="business-empty">Keine passenden Vorgänge vorhanden.</div>';
+  document.querySelectorAll('[data-business-case]').forEach(card=>card.addEventListener('click',()=>{selectedBusinessCaseId=card.dataset.businessCase;renderBusinessCaseList();renderBusinessEditor();}));
+}
+document.getElementById('businessCaseSearch')?.addEventListener('input',renderBusinessCaseList);document.getElementById('businessCaseStatusFilter')?.addEventListener('change',renderBusinessCaseList);
+function defaultOfferLine(item){
+  const selected=item.inquiry?.Paket||item.inquiry?.Miettechnik||'';const map={'Paket Blau – 600 €*':['Paket Blau',600],'Paket Weiß – 500 €*':['Paket Weiß',500],'Paket Lila – 450 €*':['Paket Lila',450],'JBL EON 715':['JBL EON 715',120],'JBL EON 718S':['JBL EON 718S',160],'Sennheiser Funkmikrofon':['Sennheiser XSW 1-825 E Funkmikrofon',40],'Kleine Anlage':['Kleine Anlage – 2 × JBL EON 715',240],'Große Anlage':['Große Anlage – 2 × JBL EON 715 + 2 × JBL EON 718S',500],'Große Anlage + Funkmikrofon':['Große Anlage + Sennheiser Funkmikrofon',540]};const found=map[selected];return found?{description:found[0],quantity:1,price:found[1]}:{description:item.type==='rental'?'Technikmiete':'DJ-Leistung',quantity:1,price:0};
+}
+function offerValues(item,portal){
+  const offer=item.offer||portal?.offer||{};return{number:offer.number||businessCaseNumber('ANG'),validUntil:offer.validUntil||businessAddDays(new Date(),14).toISOString().slice(0,10),code:offer.code||businessRandomCode(),lines:Array.isArray(offer.lines)&&offer.lines.length?offer.lines:[defaultOfferLine(item)],travelKm:Number(offer.travelKm)||0,travelRate:Number(offer.travelRate)||0.9,deposit:Number(offer.deposit)||0,notes:offer.notes||'',termsVersion:offer.termsVersion||'2026-07'};
+}
+function offerTotalsFromEditor(){
+  const rows=[...document.querySelectorAll('.offer-line-editor')];const lines=rows.map(row=>({description:row.querySelector('[data-line-description]').value.trim(),quantity:Number(row.querySelector('[data-line-quantity]').value)||0,price:Number(row.querySelector('[data-line-price]').value)||0})).filter(line=>line.description&&line.quantity>0);const subtotal=lines.reduce((sum,line)=>sum+line.quantity*line.price,0);const travelKm=Number(document.getElementById('offerTravelKm')?.value)||0;const travelRate=Number(document.getElementById('offerTravelRate')?.value)||0.9;const travelCost=travelKm*travelRate;return{lines,subtotal,travelKm,travelRate,travelCost,total:subtotal+travelCost};
+}
+function renderOfferLines(lines){
+  const container=document.getElementById('offerLineEditors');container.innerHTML=lines.map((line,index)=>`<div class="offer-line-editor" data-offer-line><div class="field"><label>Leistung</label><input data-line-description value="${esc(line.description)}"></div><div class="field"><label>Menge</label><input data-line-quantity min="0" step="1" type="number" value="${Number(line.quantity)||1}"></div><div class="field"><label>Preis €</label><input data-line-price min="0" step="0.01" type="number" value="${Number(line.price)||0}"></div><button class="ghost danger" data-remove-line type="button">Entfernen</button></div>`).join('');
+  container.querySelectorAll('input').forEach(input=>input.addEventListener('input',updateOfferEditorSummary));container.querySelectorAll('[data-remove-line]').forEach(button=>button.addEventListener('click',()=>{button.closest('[data-offer-line]').remove();updateOfferEditorSummary();}));updateOfferEditorSummary();
+}
+function updateOfferEditorSummary(){
+  const totals=offerTotalsFromEditor();const deposit=Number(document.getElementById('offerDeposit')?.value)||0;document.getElementById('offerEditorSummary').innerHTML=`<div><span>Leistungen</span><strong>${businessMoney.format(totals.subtotal)}</strong></div><div><span>Fahrtkosten</span><strong>${businessMoney.format(totals.travelCost)}</strong></div><div><span>Gesamtpreis</span><strong>${businessMoney.format(totals.total)}</strong></div><div><span>Kaution</span><strong>${businessMoney.format(deposit)}</strong></div>`;
+}
+function renderBusinessEditor(){
+  const item=businessCases.find(entry=>entry.id===selectedBusinessCaseId);if(!item)return;const portal=businessPortals.get(item.id);const offer=offerValues(item,portal);const status=effectiveCaseStatus(item);const questionnaire=portal?.questionnaire?.data;const timeline=[...(item.timeline||[])];if(portal?.customerResponse?.status)timeline.push({label:`Kundenentscheidung: ${portal.customerResponse.status==='accepted'?'angenommen':'abgelehnt'}`,detail:portal.customerResponse.note||'',at:portal.customerResponse.at||businessNowIso()});
+  document.getElementById('businessCaseEditor').innerHTML=`<div class="business-offer-head"><div><div class="eyebrow">${esc(item.caseNumber)}</div><h2>${esc(item.customer?.name||'Neuer Vorgang')}</h2></div><span class="business-status ${businessStatusClass(status)}">${businessStatusLabel(status)}</span></div>
+  <section class="business-editor-section"><h4>Kunde und Veranstaltung</h4><div class="fields"><div class="field"><label>Vorgangsart</label><select id="caseType"><option value="dj" ${item.type==='dj'?'selected':''}>DJ-Leistung</option><option value="rental" ${item.type==='rental'?'selected':''}>Technikmiete</option></select></div><div class="field"><label>Name</label><input id="caseCustomerName" value="${esc(item.customer?.name||'')}"></div><div class="field"><label>E-Mail</label><input id="caseCustomerEmail" type="email" value="${esc(item.customer?.email||'')}"></div><div class="field"><label>Telefon / WhatsApp</label><input id="caseCustomerPhone" value="${esc(item.customer?.phone||'')}"></div><div class="field"><label>Veranstaltungsart</label><input id="caseEventType" value="${esc(item.event?.eventType||'')}"></div><div class="field"><label>Datum</label><input id="caseEventDate" type="date" value="${esc(item.event?.date||'')}"></div><div class="field full"><label>Ort / Adresse</label><input id="caseEventLocation" value="${esc(item.event?.location||'')}"></div></div></section>
+  <section class="business-editor-section"><h4>Angebot</h4><div class="fields"><div class="field"><label>Angebotsnummer</label><input id="offerNumber" value="${esc(offer.number)}"></div><div class="field"><label>Angebot gültig bis</label><input id="offerValidUntil" type="date" value="${esc(offer.validUntil)}"></div><div class="field"><label>Persönlicher Code</label><input class="business-code-display" id="offerCode" value="${esc(offer.code)}"></div><div class="field"><label>Regelstand</label><input id="offerTermsVersion" value="${esc(offer.termsVersion)}"></div></div><div id="offerLineEditors"></div><button class="ghost" id="addOfferLineButton" type="button">+ Position hinzufügen</button><div class="fields" style="margin-top:14px"><div class="field"><label>Fahrtkilometer</label><input id="offerTravelKm" min="0" step="1" type="number" value="${offer.travelKm}"></div><div class="field"><label>Preis pro km</label><input id="offerTravelRate" min="0" step="0.01" type="number" value="${offer.travelRate}"></div><div class="field"><label>Kaution (nur Technikmiete)</label><input id="offerDeposit" min="0" step="0.01" type="number" value="${offer.deposit}"></div><div class="field full"><label>Individuelle Hinweise</label><textarea id="offerNotes">${esc(offer.notes)}</textarea></div></div><div class="offer-editor-summary" id="offerEditorSummary"></div></section>
+  <section class="business-editor-section"><h4>Aktionen</h4><div class="business-actions"><button class="solid" id="saveBusinessOfferButton" type="button">Vorgang &amp; Angebot speichern</button><button class="ghost" id="adminOfferPdfButton" type="button">PDF speichern</button><button class="ghost" id="adminOfferShareButton" type="button">PDF teilen</button><button class="ghost" id="adminOfferEmailButton" type="button">E-Mail vorbereiten</button><button class="ghost" id="adminOfferWhatsAppButton" type="button">WhatsApp vorbereiten</button>${portal?.customerResponse?.status==='accepted'&&status!=='confirmed'?'<button class="solid" id="adminConfirmBookingButton" type="button">Buchung endgültig bestätigen</button>':''}</div><div class="business-save-state" id="businessOfferSaveState"></div></section>
+  <section class="business-editor-section"><h4>Kundenportal</h4><div class="offer-editor-summary"><div><span>Code</span><strong class="business-code-display">${esc(offer.code)}</strong></div><div><span>Zugang bis</span><strong>${businessFormatDate(portal?.accessExpiresAt)}</strong></div><div><span>Fragebogen</span><strong>${portal?.questionnaire?.status==='submitted'?'Abgesendet':portal?.questionnaire?.status==='draft'?'Entwurf':'Nicht begonnen'}</strong></div><div><span>Termine</span><strong>${portal?.appointments?.status==='submitted'?'Eingereicht':'Offen'}</strong></div></div>${questionnaire?`<div class="questionnaire-preview" style="margin-top:14px">${esc(businessQuestionnaireText(questionnaire,item.type))}</div><div class="business-actions"><button class="ghost" id="adminQuestionnairePdf" type="button">Fragebogen PDF</button><button class="ghost" id="adminQuestionnaireWord" type="button">Fragebogen Word</button></div>`:'<div class="business-empty" style="margin-top:14px">Noch kein Fragebogen gespeichert.</div>'}</section>
+  <section class="business-editor-section"><h4>Verlauf</h4><div class="timeline-list">${timeline.sort((a,b)=>Date.parse(b.at||0)-Date.parse(a.at||0)).map(entry=>`<div class="timeline-item"><strong>${esc(entry.label)}</strong><span>${esc(entry.detail||'')} ${entry.at?'· '+businessFormatDate(entry.at,true):''}</span></div>`).join('')||'<div class="business-empty">Noch kein Verlauf vorhanden.</div>'}</div></section>`;
+  renderOfferLines(offer.lines);['offerTravelKm','offerTravelRate','offerDeposit'].forEach(id=>document.getElementById(id)?.addEventListener('input',updateOfferEditorSummary));document.getElementById('addOfferLineButton').addEventListener('click',()=>{const current=offerTotalsFromEditor().lines;current.push({description:'',quantity:1,price:0});renderOfferLines(current);});
+  document.getElementById('saveBusinessOfferButton').addEventListener('click',()=>saveBusinessOffer(false));document.getElementById('adminOfferPdfButton').addEventListener('click',async()=>{const saved=await saveBusinessOffer(false);if(saved){offerPdfDocument(saved.portal).save(`${saved.portal.offer.number}-Angebot.pdf`);}});document.getElementById('adminOfferEmailButton').addEventListener('click',()=>prepareBusinessSend('email'));document.getElementById('adminOfferWhatsAppButton').addEventListener('click',()=>prepareBusinessSend('whatsapp'));document.getElementById('adminOfferShareButton').addEventListener('click',shareBusinessOffer);document.getElementById('adminConfirmBookingButton')?.addEventListener('click',confirmBusinessBooking);document.getElementById('adminQuestionnairePdf')?.addEventListener('click',()=>questionnairePdfDocument(portal,questionnaire).save(`${item.caseNumber}-Fragebogen.pdf`));document.getElementById('adminQuestionnaireWord')?.addEventListener('click',()=>{const text=businessQuestionnaireText(questionnaire,item.type).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/\n/g,'<br>');businessDownload(new Blob([`<html><meta charset="utf-8"><body><h1>DJ Reifi – Fragebogen</h1><p>${text}</p></body></html>`],{type:'application/msword'}),`${item.caseNumber}-Fragebogen.doc`);});
+}
+async function collectBusinessOfferData(){
+  const item=businessCases.find(entry=>entry.id===selectedBusinessCaseId);if(!item)throw new Error('Kein Vorgang ausgewählt.');const totals=offerTotalsFromEditor();if(!totals.lines.length)throw new Error('Mindestens eine Angebotsposition ist erforderlich.');const customer={name:document.getElementById('caseCustomerName').value.trim(),email:businessNormalizeEmail(document.getElementById('caseCustomerEmail').value),phone:document.getElementById('caseCustomerPhone').value.trim(),replyMethod:item.customer?.replyMethod||'E-Mail'};if(!customer.name||!customer.email)throw new Error('Name und E-Mail-Adresse sind erforderlich.');const event={...(item.event||{}),eventType:document.getElementById('caseEventType').value.trim(),date:document.getElementById('caseEventDate').value,location:document.getElementById('caseEventLocation').value.trim()};const offer={number:document.getElementById('offerNumber').value.trim()||businessCaseNumber('ANG'),validUntil:document.getElementById('offerValidUntil').value,code:businessNormalizeCode(document.getElementById('offerCode').value)||businessRandomCode(),termsVersion:document.getElementById('offerTermsVersion').value.trim(),...totals,deposit:Number(document.getElementById('offerDeposit').value)||0,notes:document.getElementById('offerNotes').value.trim()};return{item,type:document.getElementById('caseType').value,customer,event,offer};
+}
+async function saveBusinessOffer(markSent=false){
+  const state=document.getElementById('businessOfferSaveState');state.className='business-save-state';state.textContent='Wird gespeichert …';
+  try{
+    const data=await collectBusinessOfferData();const oldPortal=businessPortals.get(data.item.id);const key=await businessPortalKey(data.customer.email,data.offer.code);const accessExpiresAt=oldPortal?.status==='confirmed'?businessEventAccessExpiry(data.event.date):businessAddDays(new Date(),30);const status=markSent?'sent':(oldPortal?.status||(data.item.status==='new'?'draft':data.item.status));const timeline=[...(data.item.timeline||[]),businessTimelineEntry(markSent?'Angebot als versendet markiert':'Vorgang und Angebot gespeichert',data.offer.number)];const casePayload={type:data.type,status,customer:data.customer,event:data.event,offer:data.offer,portalKey:key,timeline,updatedAt:serverTimestamp()};await updateDoc(doc(db,'businessCases',data.item.id),casePayload);if(oldPortal?.id&&oldPortal.id!==key)await deleteDoc(doc(db,'clientPortals',oldPortal.id));const portalPayload={caseId:data.item.id,caseNumber:data.item.caseNumber,type:data.type,status,customerName:data.customer.name,customerEmailNorm:data.customer.email,customerPhone:data.customer.phone,event:data.event,offer:data.offer,customerResponse:oldPortal?.customerResponse||{},questionnaire:oldPortal?.questionnaire||{},appointments:oldPortal?.appointments||{},accessExpiresAt:Timestamp.fromDate(accessExpiresAt),createdAt:oldPortal?.createdAt||serverTimestamp(),updatedAt:serverTimestamp()};await setDoc(doc(db,'clientPortals',key),portalPayload,{merge:true});state.className='business-save-state success';state.textContent='Gespeichert.';document.getElementById('offerCode').value=data.offer.code;return{caseData:{...data.item,...casePayload},portal:{id:key,...portalPayload}};
+  }catch(error){console.error(error);state.className='business-save-state error';state.textContent=error.message||'Speichern fehlgeschlagen.';return null;}
+}
+async function markOfferSentAndGet(){return saveBusinessOffer(true);}
+function businessMessage(portal){return `Hallo ${portal.customerName||''},\n\nIhr persönliches Angebot von DJ Reifi ist fertig.\n\nAngebotsnummer: ${portal.offer?.number||portal.caseNumber}\nKundenportal: ${BUSINESS_PORTAL_URL}\nAngebotscode: ${portal.offer?.code||''}\n\nBitte melden Sie sich mit der E-Mail-Adresse aus Ihrer Anfrage und dem Code an. Dort können Sie das Angebot annehmen, ablehnen oder eine Rückfrage senden.\n\nViele Grüße\nMarcel Reifenstein · DJ Reifi`;}
+async function prepareBusinessSend(channel){
+  const saved=await markOfferSentAndGet();if(!saved)return;const portal=saved.portal;const subject=`Ihr Angebot von DJ Reifi – ${portal.offer.number}`;const message=businessMessage(portal);offerPdfDocument(portal).save(`${portal.offer.number}-Angebot.pdf`);
+  if(channel==='email')location.href=`mailto:${encodeURIComponent(portal.customerEmailNorm)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message+'\n\nDie PDF wurde auf diesem Gerät gespeichert und kann der E-Mail angehängt werden.')}`;
+  else{const number=businessWhatsAppNumber(portal.customerPhone);if(!number){toast('Für WhatsApp fehlt eine Telefonnummer.');return;}window.open(`https://wa.me/${number}?text=${encodeURIComponent(message+'\n\nDas Angebot als PDF kann zusätzlich angehängt werden.')}`,'_blank','noopener');}
+}
+async function shareBusinessOffer(){
+  const saved=await markOfferSentAndGet();if(!saved)return;try{const pdf=offerPdfDocument(saved.portal);const blob=pdf.output('blob');const file=new File([blob],`${saved.portal.offer.number}-Angebot.pdf`,{type:'application/pdf'});if(navigator.canShare?.({files:[file]})){await navigator.share({title:`Angebot ${saved.portal.offer.number}`,text:businessMessage(saved.portal),files:[file]});}else{businessDownload(blob,file.name);toast('Die PDF wurde gespeichert. Direktes Teilen wird von diesem Browser nicht unterstützt.');}}catch(error){if(error.name!=='AbortError'){console.error(error);toast('Das Angebot konnte nicht geteilt werden.');}}
+}
+async function confirmBusinessBooking(){
+  const item=businessCases.find(entry=>entry.id===selectedBusinessCaseId);const portal=businessPortals.get(selectedBusinessCaseId);if(!item||!portal)return;if(!confirm('Die Buchung jetzt endgültig bestätigen?'))return;const expiry=businessEventAccessExpiry(item.event?.date);const timeline=[...(item.timeline||[]),businessTimelineEntry('Buchung durch DJ Reifi endgültig bestätigt')];await updateDoc(doc(db,'businessCases',item.id),{status:'confirmed',timeline,updatedAt:serverTimestamp()});await updateDoc(doc(db,'clientPortals',portal.id),{status:'confirmed',accessExpiresAt:Timestamp.fromDate(expiry),healthDeleteAt:Timestamp.fromDate(expiry),updatedAt:serverTimestamp()});toast('Buchung endgültig bestätigt.');
+}
+document.getElementById('newBusinessCaseButton')?.addEventListener('click',async()=>{const id=crypto.randomUUID();await setDoc(doc(db,'businessCases',id),{caseNumber:businessCaseNumber('ANF'),type:'dj',status:'draft',customer:{name:'',email:'',phone:'',replyMethod:'E-Mail'},event:{date:'',location:'',eventType:'',guests:'',time:''},inquiry:{},timeline:[businessTimelineEntry('Vorgang manuell angelegt')],createdAt:serverTimestamp(),updatedAt:serverTimestamp()});selectedBusinessCaseId=id;});
+async function cleanupExpiredHealthData(){
+  let cleaned=0;const now=Date.now();for(const portal of businessPortals.values()){if(portal.questionnaire?.data&&(businessTimestampMs(portal.healthDeleteAt)>0&&businessTimestampMs(portal.healthDeleteAt)<now)){await updateDoc(doc(db,'clientPortals',portal.id),{'questionnaire.data.healthConditions':deleteField(),'questionnaire.data.healthOther':deleteField(),'questionnaire.data.healthConsent':deleteField(),healthPurgedAt:serverTimestamp()});cleaned++;}}toast(cleaned?`${cleaned} Gesundheitsdatensatz/-sätze wurden fristgerecht gelöscht.`:'Keine fälligen Gesundheitsdaten gefunden.');
+}
+document.getElementById('cleanupHealthButton')?.addEventListener('click',cleanupExpiredHealthData);
+
 </script>
 
 <script id="package-image-lightbox-script">
